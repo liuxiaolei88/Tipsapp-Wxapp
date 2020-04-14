@@ -1,0 +1,48 @@
+<!--  -->
+<van-skeleton title avatar row="3" />
+
+<van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+
+  </view>
+</van-cell>
+<van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+    
+  </view>
+</van-cell><van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+   
+  </view>
+</van-cell><van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+   
+  </view>
+</van-cell><van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+   
+  </view>
+</van-cell>
+<van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+ 
+  </view>
+</van-cell>
+<van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+ 
+  </view>
+</van-cell>
+<van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+ 
+  </view>
+</van-cell>

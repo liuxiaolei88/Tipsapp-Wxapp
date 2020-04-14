@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-button": "../../dist/button/index",
+    "van-rate": "../../dist/rate/index",
+    "van-field": "../../dist/field/index",
+    "van-uploader": "../../dist/uploader/index",
+    "van-calendar": "../../dist/calendar/index",
+    "van-stepper": "../../dist/stepper/index"
+  }
+}

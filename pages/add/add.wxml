@@ -1,0 +1,46 @@
+<!-- 添加信息页面 -->
+<form>
+<van-cell-group>
+  <van-field
+    value="{{ value }}"
+    placeholder="请输入物品名"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+<van-cell-group>
+  <van-field
+    value="{{ value }}"
+    placeholder="备注"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+<van-uploader file-list="{{ fileList }}" />
+<van-stepper value="{{ 1 }}" bind:change="onChange" />
+<view class="section">
+  <view class="section__title">日期选择器</view>
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+</view>
+<view class="section">
+  <view class="section__title">日期选择器</view>
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+</view>
+<view class="section">
+  <view class="section__title">日期选择器</view>
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+</view>
+<van-button type="info">提交</van-button>
+</form>

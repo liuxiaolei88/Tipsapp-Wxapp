@@ -1,0 +1,42 @@
+
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="标签 1"></van-tab>
+  <van-tab title="标签 2"></van-tab>
+  <van-tab title="标签 3"></van-tab>
+</van-tabs>
+<van-search
+  value="{{ value }}"
+  shape="round"
+  background="#4fc08d"
+  placeholder="请输入搜索关键词"
+/>
+<van-card
+  num="2"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>
+<van-card
+  num="2"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>
+<van-card
+  num="2"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>
+<van-card
+  num="2"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>
+<van-card
+  num="2"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>
