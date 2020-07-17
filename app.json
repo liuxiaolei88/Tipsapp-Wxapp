@@ -1,9 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/add/add",
     "pages/main/main",
-    "pages/userdetail/userdetail"
+    "pages/userdetail/userdetail",
+    "pages/Q&A/Q&A",
+    "pages/version/version",
+    "pages/feedback/feedback",
+    "pages/thank/thank",
+    "pages/aboutapp/aboutapp"
   ],
   "window": {
     "backgroundTextStyle": "light",
