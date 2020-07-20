@@ -1,42 +1,20 @@
 {
   "pages": [
-    
     "pages/add/add",
     "pages/main/main",
-    "pages/userdetail/userdetail"
+    "pages/userdetail/userdetail",
+    "pages/Q&A/Q&A",
+    "pages/version/version",
+    "pages/feedback/feedback",
+    "pages/thank/thank",
+    "pages/aboutapp/aboutapp"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#FFFACD",
-    "navigationBarTitleText": "云保质期助手",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "selectedColor":"#FA8072",
-    
-    "list": [
-     
-    {
-      "pagePath": "pages/main/main",
-      "text": "总清单"
-      
-    },
-    {
-      "pagePath":  "pages/add/add",
-      "text": "添加"
-      
-      
-    },
-   
-    {
-      "pagePath":  "pages/userdetail/userdetail",
-      "text": "我的"
-      
-    }
-  ]
-  },
-  
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

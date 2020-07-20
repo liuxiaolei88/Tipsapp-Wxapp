@@ -1,1 +1,15 @@
 /* pages/userdetail/userdetail.wxss */
+.other
+{
+  border-radius: 30rpx;
+  margin-top: 100rpx;
+}
+.userinfo
+{
+    margin-top: 40rpx;
+}
+.van-cell-text
+{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
