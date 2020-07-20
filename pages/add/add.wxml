@@ -1,23 +1,30 @@
+
 <!-- 添加信息页面 -->
 <form>
-<van-cell-group>
+
+<van-cell-group >
   <van-field
     value="{{ value }}"
-    placeholder="请输入物品名"
+    placeholder="请输入物品名称"
     border="{{ false }}"
     bind:change="onChange"
   />
 </van-cell-group>
+
+<view>备注</view>
 <van-cell-group>
   <van-field
     value="{{ value }}"
-    placeholder="备注"
+    placeholder="请输入备注"
     border="{{ false }}"
     bind:change="onChange"
   />
 </van-cell-group>
+
+<view>图片添加</view>
 <van-uploader file-list="{{ fileList }}" />
 <van-stepper value="{{ 1 }}" bind:change="onChange" />
+
 <view class="section">
   <view class="section__title">日期选择器</view>
   <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
@@ -26,6 +33,9 @@
     </view>
   </picker>
 </view>
+
+<include src="../tools/wxml/picker_datetime.wxml"/>
+
 <view class="section">
   <view class="section__title">日期选择器</view>
   <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">

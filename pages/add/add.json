@@ -1,5 +1,7 @@
 {
+  "navigationBarTitleText": "添加",
   "usingComponents": {
+    
     "van-button": "../../dist/button/index",
     "van-rate": "../../dist/rate/index",
     "van-field": "../../dist/field/index",
