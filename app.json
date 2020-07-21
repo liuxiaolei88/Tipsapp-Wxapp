@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/add/add",
     "pages/main/main",
+    "pages/add/add",
     "pages/userdetail/userdetail",
-    "pages/Q&A/Q&A",
     "pages/version/version",
     "pages/feedback/feedback",
     "pages/thank/thank",
@@ -11,10 +10,31 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#3CB371",
+    "navigationBarTitleText": "保质期助手",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true,
+    "backgroundTextStyle":"black"
   },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/main/main",
+      "text": "清单"
+      
+    },
+    {
+      "pagePath": "pages/add/add",
+      "text": "添加"
+     
+    },
+    {
+      "pagePath": "pages/userdetail/userdetail",
+      "text": "我的"
+    } 
+  ]
+
+  },
+  
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

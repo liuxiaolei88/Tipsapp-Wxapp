@@ -1,56 +1,37 @@
 
 <!-- 添加信息页面 -->
 <form>
-
-<van-cell-group >
-  <van-field
-    value="{{ value }}"
-    placeholder="请输入物品名称"
-    border="{{ false }}"
-    bind:change="onChange"
-  />
-</van-cell-group>
-
-<view>备注</view>
 <van-cell-group>
   <van-field
-    value="{{ value }}"
+    value="{{ username }}"
+    clearable
+    label="物品名称"
+    icon="question-o"
+    placeholder="请输入物品名称"
+    bind:click-icon="onClickIcon"
+  />
+
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="备注"
     placeholder="请输入备注"
     border="{{ false }}"
-    bind:change="onChange"
   />
 </van-cell-group>
 
-<view>图片添加</view>
-<van-uploader file-list="{{ fileList }}" />
+
+<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
 <van-stepper value="{{ 1 }}" bind:change="onChange" />
 
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
+<van-button bindtap="onTap" color="#3CB371" plain type="info" size="large">分类{{value}}</van-button>
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ arr }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
 
-<include src="../tools/wxml/picker_datetime.wxml"/>
 
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
-<van-button type="info">提交</van-button>
+<van-button  round bindtap="onClick" color="#3CB371" type="info" size="large">提交</van-button>
 </form>
