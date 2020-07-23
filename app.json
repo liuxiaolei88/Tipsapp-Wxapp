@@ -13,8 +13,7 @@
     "navigationBarBackgroundColor": "#3CB371",
     "navigationBarTitleText": "保质期助手",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh":true,
-    "backgroundTextStyle":"black"
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "list": [{

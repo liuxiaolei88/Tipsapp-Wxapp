@@ -1,8 +1,8 @@
 
 <van-tabs active="{{ active }}" bind:change="onChange">
-  <van-tab title="标签 1"></van-tab>
-  <van-tab title="标签 2"></van-tab>
-  <van-tab title="标签 3"></van-tab>
+  <van-tab title="食品"></van-tab>
+  <van-tab title="药品"></van-tab>
+  <van-tab title="化妆品护肤品"></van-tab>
 </van-tabs>
 <van-search
   value="{{ value }}"
@@ -13,30 +13,30 @@
 <van-card
   num="2"
   desc="描述信息"
-  title="商品标题"
+  title="物品名称"
   thumb="{{ imageURL }}"
 />
 <van-card
   num="2"
   desc="描述信息"
-  title="商品标题"
+  title="物品名称"
   thumb="{{ imageURL }}"
 />
 <van-card
   num="2"
   desc="描述信息"
-  title="商品标题"
+  title="物品名称"
   thumb="{{ imageURL }}"
 />
 <van-card
   num="2"
   desc="描述信息"
-  title="商品标题"
+  title="物品名称"
   thumb="{{ imageURL }}"
 />
 <van-card
   num="2"
   desc="描述信息"
-  title="商品标题"
+  title="物品名称"
   thumb="{{ imageURL }}"
 />

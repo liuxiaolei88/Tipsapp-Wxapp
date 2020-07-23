@@ -25,6 +25,8 @@
 <van-stepper value="{{ 1 }}" bind:change="onChange" />
 
 <van-button bindtap="onTap" color="#3CB371" plain type="info" size="large">分类{{value}}</van-button>
+
+
 <van-action-sheet
   show="{{ show }}"
   actions="{{ arr }}"
@@ -33,5 +35,23 @@
 />
 
 
+
+<van-cell title="生产日期" value="{{ date1 }}" bind:click="onDisplay1" />
+<van-calendar show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" />
+
+<van-cell title="过期日期" value="{{ date2 }}" bind:click="onDisplay2" />
+<van-calendar show="{{ show2 }}" bind:close="onClose2" bind:confirm="onConfirm2" />
+
+<van-cell title="提醒日期" value="{{ date3 }}" bind:click="onDisplay3" />
+<van-calendar show="{{ show3 }}" bind:close="onClose3" bind:confirm="onConfirm3" />
+
+<van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
+<van-calendar show="{{ show4 }}" bind:close="onClose4" bind:confirm="onConfirm4" />
+
+
+
+
+
 <van-button  round bindtap="onClick" color="#3CB371" type="info" size="large">提交</van-button>
 </form>
+<navigator url="../../main/main" open-type="navigate"></navigator>
