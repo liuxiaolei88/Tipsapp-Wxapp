@@ -18,21 +18,29 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/main/main",
-      "text": "清单"
+      "text": "清单",
+      "iconPath": "icon/home.png",
+      "selectedIconPath": "icon/home Active.png"
+      
       
     },
     {
       "pagePath": "pages/add/add",
-      "text": "添加"
+      "text": "添加",
+      "iconPath": "icon/addto.png",
+      "selectedIconPath": "icon/addtoActive.png"
      
     },
     {
       "pagePath": "pages/userdetail/userdetail",
-      "text": "我的"
+      "text": "我的",
+      "iconPath": "icon/user.png",
+      "selectedIconPath": "icon/user Active.png"
     } 
   ]
 
   },
+  
   
   "style": "v2",
   "sitemapLocation": "sitemap.json"

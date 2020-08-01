@@ -24,7 +24,7 @@
 <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
 <van-stepper value="{{ 1 }}" bind:change="onChange" />
 
-<van-button bindtap="onTap" color="#3CB371" plain type="info" size="large">分类{{value}}</van-button>
+<van-button bindtap="onTap" color="#3CB371" plain type="info" size="normal">分类{{value}}</van-button>
 
 
 <van-action-sheet
@@ -52,6 +52,6 @@
 
 
 
-<van-button  round bindtap="onClick" color="#3CB371" type="info" size="large">提交</van-button>
+<van-button  round bindtap="onClick" color="#3CB371" type="info" size="normal">提交</van-button>
 </form>
 <navigator url="../../main/main" open-type="navigate"></navigator>

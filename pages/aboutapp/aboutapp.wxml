@@ -1,2 +1,5 @@
-<!--pages/aboutapp/aboutapp.wxml-->
-<text>pages/aboutapp/aboutapp.wxml</text>
+<view class="style1">
+<view class="style2">在发现生活中有许多因保质期带来的浪费和不便，而市面上现有的软件又无法解决这一问题后，我团队自主研发了云保质期管家APP。这是一款可以为用户提供物品保质期记录与提醒功能的APP。该APP可以提醒用户将一些本会因被遗忘而超过使用期限的物品在限用期限内使用完毕，便利用户生活的同时促进环保事业。
+</view>
+</view>
+

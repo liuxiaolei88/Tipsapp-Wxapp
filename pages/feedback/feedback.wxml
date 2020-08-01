@@ -1,2 +1,20 @@
 <!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+
+<view class="views">
+  <text style="justify-content: center">请输入您的反馈内容 </text>
+</view>
+<form>
+<van-cell-group>
+  <van-field
+    value="{{ value }}"
+    label="反馈内容"
+    placeholder="请输入反馈具体内容"
+    border="{{ false }}"
+    bind:change="onChange"
+    size="large"
+  />
+</van-cell-group>
+</form>
+
+<van-button  round bindtap="onClick" color="#3CB371" van-button type="primary" size="normal">提交</van-button>
+

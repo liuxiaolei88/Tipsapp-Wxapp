@@ -6,7 +6,15 @@ Page({
       {name:" 药品"},
       {name:" 化妆品护肤品"}
     ],
-    value:""
+    value:"",
+    date1: '',
+    show1: false,
+    date2: '',
+    show2: false,
+    date3: '',
+    show3: false,
+    date4: '',
+    show4: false,
   },
 
   
@@ -36,11 +44,6 @@ Page({
 
   },
   
-  data1: {
-    date1: '',
-    show1: false,
-  
-  },
   onTap1(){
     this.setData({
       show1:true
@@ -62,15 +65,12 @@ Page({
     console.log(res.detail.date1)
     this.setData({
       show1: false,
-      date1: this.formatDate1(res.detail.date1),
+      date1: this.formatDate1(res.detail),
     });
+    console.log(res.detail)
   },
 
-  data2: {
-    date2: '',
-    show2: false,
   
-  },
   onTap2(){
     this.setData({
       show2:true
@@ -92,16 +92,12 @@ Page({
     console.log(res.detail.date2)
     this.setData({
       show2: false,
-      date2: this.formatDate1(res.detail.date2),
+      date2: this.formatDate1(res.detail),
     });
   },
   
   
-  data3: {
-    date3: '',
-    show3: false,
   
-  },
   onTap3(){
     this.setData({
       show3:true
@@ -123,14 +119,10 @@ Page({
     console.log(res.detail.date3)
     this.setData({
       show3: false,
-      date3: this.formatDate3(res.detail.date3),
+      date3: this.formatDate3(res.detail),
     });
   },
-  data4: {
-    date4: '',
-    show4: false,
   
-  },
   onTap4(){
     this.setData({
       show4:true
@@ -152,7 +144,7 @@ Page({
     console.log(res.detail.date4)
     this.setData({
       show4: false,
-      date4: this.formatDate4(res.detail.date4),
+      date4: this.formatDate4(res.detail),
     });
   },
   
