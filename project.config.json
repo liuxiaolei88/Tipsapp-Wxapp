@@ -1,5 +1,6 @@
 {
 	"description": "项目配置文件",
+	"cloudfunctionRoot": "cloud/",
 	"packOptions": {
 		"ignore": []
 	},
@@ -16,7 +17,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
-	"appid": "wx73a2884ac24bad4d",
+	"appid": "wxa8a79d2f72dd776a",
 	"projectname": "daytips",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -80,6 +81,13 @@
 					"id": -1,
 					"name": "pages/Q&A/Q&A",
 					"pathName": "pages/Q&A/Q&A",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userdetail/log",
+					"pathName": "pages/log/log",
 					"scene": null
 				}
 			]
