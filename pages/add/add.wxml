@@ -1,46 +1,57 @@
+
 <!-- 添加信息页面 -->
 <form>
 <van-cell-group>
   <van-field
-    value="{{ value }}"
-    placeholder="请输入物品名"
-    border="{{ false }}"
-    bind:change="onChange"
+    value="{{ username }}"
+    clearable
+    label="物品名称"
+    icon="question-o"
+    placeholder="请输入物品名称"
+    bind:click-icon="onClickIcon"
   />
-</van-cell-group>
-<van-cell-group>
+
   <van-field
-    value="{{ value }}"
-    placeholder="备注"
+    value="{{ password }}"
+    type="password"
+    label="备注"
+    placeholder="请输入备注"
     border="{{ false }}"
-    bind:change="onChange"
   />
 </van-cell-group>
-<van-uploader file-list="{{ fileList }}" />
+
+
+<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
 <van-stepper value="{{ 1 }}" bind:change="onChange" />
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
-<van-button type="info">提交</van-button>
+
+<van-button bindtap="onTap" color="#3CB371" plain type="info" size="normal">分类{{value}}</van-button>
+
+
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ arr }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+
+
+
+<van-cell title="生产日期" value="{{ date1 }}" bind:click="onDisplay1" />
+<van-calendar show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" />
+
+<van-cell title="过期日期" value="{{ date2 }}" bind:click="onDisplay2" />
+<van-calendar show="{{ show2 }}" bind:close="onClose2" bind:confirm="onConfirm2" />
+
+<van-cell title="提醒日期" value="{{ date3 }}" bind:click="onDisplay3" />
+<van-calendar show="{{ show3 }}" bind:close="onClose3" bind:confirm="onConfirm3" />
+
+<van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
+<van-calendar show="{{ show4 }}" bind:close="onClose4" bind:confirm="onConfirm4" />
+
+
+
+
+
+<van-button  round bindtap="onClick" color="#3CB371" type="info" size="normal">提交</van-button>
 </form>
+<navigator url="../../main/main" open-type="navigate"></navigator>

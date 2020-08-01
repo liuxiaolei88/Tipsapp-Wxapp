@@ -1,1 +1,11 @@
 /* pages/aboutapp/aboutapp.wxss */
+.style1{
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 51rpx;
+}
+.style2{
+  color: #F5F5F5;
+  font-size: 22rpx;
+  line-height: 44rpx;
+}
