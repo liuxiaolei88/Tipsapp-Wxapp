@@ -6,9 +6,7 @@
     "pages/version/version",
     "pages/feedback/feedback",
     "pages/thank/thank",
-    "pages/aboutapp/aboutapp",
-    "pages/Q&A/Q&A"
-    
+    "pages/aboutapp/aboutapp"
   ],
   "window": {
     "backgroundTextStyle": "light",

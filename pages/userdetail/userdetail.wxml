@@ -1,6 +1,9 @@
 <!-- 用户信息 -->
-<view class="userinfo">
-<van-skeleton title avatar row="3" />
+<view>
+
+<image src="{{userInfo.avatarUrl}}">
+</image>
+<text></text>
 </view>
 <!-- 下面其他分类栏 -->
 <view class="other">
