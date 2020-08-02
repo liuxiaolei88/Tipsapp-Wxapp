@@ -1,10 +1,11 @@
 //app.js
 App({
   onLaunch: function () {
+    // 云开发初始化
     wx.cloud.init({
-      env: 'test-daytips'
+      env: "daytips-rr1wj",
+      traceUser: true
     })
-   // 云函数端
   },
   globalData: {
     userInfo: null

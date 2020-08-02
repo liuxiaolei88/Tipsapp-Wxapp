@@ -6,6 +6,7 @@ Page({
   data: {
     motto: '欢迎来到云保质期管家',
     userInfo: {},
+    itemList:{},//物品清单
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -51,19 +52,32 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    wx.setStorage({//存储到本地
-      key: "userInfo",
-      data: e.detail.userInfo
-    })
+   // var that = this
+    //var itemList = this.data.itemList
+    wx.cloud.callFunction({
+      name: "openId"
+    }).then( res =>{
+       console.log(res.result.openid)
+      wx.setStorage({//存储到本地
+        key: "userOpenId",
+        data: res.result.openid
+      })
+      this.setData({
+        itemList: res.result.openid
+       })
+      },
+      
+      
+    ) ,
+
+   
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
  
     setTimeout(function () {
-      console.log("hhhhh")
       wx.reLaunch({
         url: '/pages/main/main',
       })

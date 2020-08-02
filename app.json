@@ -7,14 +7,17 @@
     "pages/version/version",
     "pages/feedback/feedback",
     "pages/thank/thank",
-    "pages/aboutapp/aboutapp"
+    "pages/aboutapp/aboutapp",
+    "pages/Q&A/Q&A"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3CB371",
-    "navigationBarTitleText": "保质期助手",
+    "navigationBarTitleText": "云保质期管家",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh":true
+    
+    
   },
   "tabBar": {
     "list": [{
