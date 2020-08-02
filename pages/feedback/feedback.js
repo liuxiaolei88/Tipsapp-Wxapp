@@ -9,7 +9,7 @@ Page({
   },
   onClick(){
     wx.showToast({
-      title: '成功',
+      title: '感谢您的反馈',
     })
 
   }

@@ -1,7 +1,7 @@
 <!--pages/feedback/feedback.wxml-->
 
 <view class="views">
-  <text style="justify-content: center">请输入您的反馈内容 </text>
+  <text style="justify-content: center">请输入您的反馈 </text>
 </view>
 <form>
 <van-cell-group>

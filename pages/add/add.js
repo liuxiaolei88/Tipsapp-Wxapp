@@ -15,8 +15,13 @@ Page({
     show3: false,
     date4: '',
     show4: false,
+    minDate: new Date(2019, 0, 1).getTime(),
+    maxDate: new Date(2050, 0, 31).getTime(),
+
+   
   },
 
+  
   
   onTap(){
     this.setData({
@@ -59,10 +64,11 @@ Page({
   },
   formatDate1(date1) {
     date1 = new Date(date1);
-    return `${date1.getMonth() + 1}/${date1.getDate()}`;
+    return `${date1.getYear() +1900}/${date1.getMonth() + 1}/${date1.getDate()}`;
+    
   },
   onConfirm1(res) {
-    console.log(res.detail.date1)
+    //console.log(res.detail.date1)
     this.setData({
       show1: false,
       date1: this.formatDate1(res.detail),
@@ -86,7 +92,7 @@ Page({
   },
   formatDate2(date2) {
     date2 = new Date(date2);
-    return `${date2.getMonth() + 1}/${date2.getDate()}`;
+    return `${date2.getYear() +1900}/${date2.getMonth() + 1}/${date2.getDate()}`;
   },
   onConfirm2(res) {
     console.log(res.detail.date2)
@@ -113,7 +119,7 @@ Page({
   },
   formatDate3(date3) {
     date3 = new Date(date3);
-    return `${date3.getMonth() + 1}/${date3.getDate()}`;
+    return `${date3.getYear() +1900}/${date3.getMonth() + 1}/${date3.getDate()}`;
   },
   onConfirm3(res) {
     console.log(res.detail.date3)
@@ -138,7 +144,7 @@ Page({
   },
   formatDate4(date4) {
     date4 = new Date(date4);
-    return `${date4.getMonth() + 1}/${date4.getDate()}`;
+    return `${date4.getYear() +1900}/${date4.getMonth() + 1}/${date4.getDate()}`;
   },
   onConfirm4(res) {
     console.log(res.detail.date4)

@@ -1,11 +1,27 @@
 /* pages/aboutapp/aboutapp.wxss */
 .style1{
-  color: #fff;
-  font-size: 28rpx;
-  line-height: 51rpx;
+  background:#F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: 0 auto;
+  width:300px; 
+  height:300px;
+  white-space:pre-line;
 }
 .style2{
-  color: #F5F5F5;
-  font-size: 22rpx;
-  line-height: 44rpx;
+  
+  color:#000000;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: 0 auto;
+  width:290px; 
+  height:280px;
+  white-space:pre-line;
+
+}
+.style3{
+  font-size:25px;      /*设置文字字号*/
+  color:red;           /*设置文字颜色*/
 }
