@@ -86,9 +86,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "/pages/Q&A/Q&A",
-					"pathName": "/pages/Q&A/Q&A",
+					"id": 3,
+					"name": "pages/Q&A/Q&A",
+					"pathName": "pages/Q&A/Q&A",
 					"query": "",
 					"scene": null
 				},
@@ -96,6 +96,7 @@
 					"id": -1,
 					"name": "pages/Q&A/Q&A",
 					"pathName": "pages/Q&A/Q&A",
+					"query": "",
 					"scene": null
 				}
 			]
