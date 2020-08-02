@@ -53,10 +53,15 @@ Page({
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
+    wx.setStorage({//存储到本地
+      key: "userInfo",
+      data: e.detail.userInfo
+    })
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+ 
     setTimeout(function () {
       console.log("hhhhh")
       wx.reLaunch({
