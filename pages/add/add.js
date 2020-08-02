@@ -1,5 +1,7 @@
 Page({
   data:{
+
+   
     show:false,
     arr:[
       {name:" 食品"},
@@ -7,6 +9,7 @@ Page({
       {name:" 化妆品护肤品"}
     ],
     value:"",
+    fileList: [],
     date1: '',
     show1: false,
     date2: '',
@@ -17,11 +20,21 @@ Page({
     show4: false,
     minDate: new Date(2019, 0, 1).getTime(),
     maxDate: new Date(2050, 0, 31).getTime(),
-
-   
   },
 
-  
+  afterRead:function(event){
+    console.log(event);
+    const { file } = event.detail;
+    const{fileList=[]} = this.data;
+    fileList.push({url:file.path});
+    this.setData({fileList})
+    console.log(fileList)
+    },
+
+  onChange(event) {
+    // event.detail 为当前输入的值
+    console.log(event.detail);
+  },
   
   onTap(){
     this.setData({
@@ -48,8 +61,9 @@ Page({
     })
 
   },
+
   
-  onTap1(){
+  /*onTap1(){
     this.setData({
       show1:true
     })
@@ -152,7 +166,9 @@ Page({
       show4: false,
       date4: this.formatDate4(res.detail),
     });
-  },
+  },*/
   
 
 });
+
+
