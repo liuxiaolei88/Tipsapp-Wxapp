@@ -1,0 +1,2 @@
+<image src="/icon/Q&A.png" bindload="imageLoad" data-index="{{ index }}" 
+style="width:750rpx; height:1200rpx;"></image>
