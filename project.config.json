@@ -96,13 +96,6 @@
 					"id": -1,
 					"name": "pages/Q&A/Q&A",
 					"pathName": "pages/Q&A/Q&A",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/userdetail/userdetail",
-					"pathName": "pages/log/log",
 					"scene": null
 				}
 			]

@@ -13,3 +13,85 @@
   margin-left: 20rpx;
   font-size: 30rpx;
 }
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:#FFFFFF;
+  width: 100%;
+  height: 300rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: black;
+}
+
+.header {
+  margin: 90rpx 0 90rpx 50rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+}
+
+.header image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+}
+
+.content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+}
+
+.bottom {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 35rpx;
+}
+
+/* 用户中心 */
+
+.hr {
+  width: 100%;
+  height: 15px;
+  background-color: #f4f5f6;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+}
+.title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}

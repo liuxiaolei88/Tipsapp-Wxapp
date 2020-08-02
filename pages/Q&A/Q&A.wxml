@@ -1,3 +1,3 @@
 <!--pages/Q&A/Q&A.wxml-->
-<text>Q:小程序该如何使用</text>
-<text>A:可点击添加物品选择适合自己的模式，录入信息。通过点击不同分类标签查看自己的物品。</text>
+<image src="/icon/Q&A.png" mode="aspectFill" style="width: 780rpx; height: 1300rpx">
+</image>
