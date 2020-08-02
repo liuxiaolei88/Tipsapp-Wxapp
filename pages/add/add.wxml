@@ -35,21 +35,21 @@
 />
 
 
-<!-- <van-cell title="生产日期" show-subtitle="true" value="{{ date1 }}" bind:click="onDisplay1" /> -->
-<!-- <van-calendar show-subtitle="false" show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"/>  -->
+<van-cell title="生产日期" show-subtitle="true" value="{{ date1 }}" bind:click="onDisplay1" />
+<van-calendar show-subtitle="false" show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"/>
 
-<!-- <van-cell title="过期日期" value="{{ date2 }}" bind:click="onDisplay2" />
+<van-cell title="过期日期" value="{{ date2 }}" bind:click="onDisplay2" />
 <van-calendar show="{{ show2 }}" bind:close="onClose2" bind:confirm="onConfirm2" min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"/> -->
+  max-date="{{ maxDate }}"/>
 
-<!-- <van-cell title="提醒日期" value="{{ date3 }}" bind:click="onDisplay3" />
+<van-cell title="提醒日期" value="{{ date3 }}" bind:click="onDisplay3" />
 <van-calendar show="{{ show3 }}" bind:close="onClose3" bind:confirm="onConfirm3" min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"/> -->
+  max-date="{{ maxDate }}"/>
 
-<!-- <van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
+<van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
 <van-calendar show="{{ show4 }}" bind:close="onClose4" bind:confirm="onConfirm4" min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"/> -->
+  max-date="{{ maxDate }}"/>
   
 
 <van-button  round bindtap="onClick" color="#3CB371" type="info" size="normal">提交</van-button>

@@ -1,5 +1,5 @@
 
-<van-tabs active="{{ active }}" bind:change="onChange">
+<van-tabs active="{{ active }}" bind:change="onChange" color="#3CB371">
   <van-tab title="食品"></van-tab>
   <van-tab title="药品"></van-tab>
   <van-tab title="化妆品护肤品"></van-tab>
