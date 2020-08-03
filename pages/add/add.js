@@ -17,10 +17,22 @@ Page({
     show4: false,
     minDate: new Date(2019, 0, 1).getTime(),
     maxDate: new Date(2050, 0, 31).getTime(),
-
+    fileList: [],
    
   },
+  afterRead: function (event) {
+    console.log(event);
+    const { file } = event.detail;
+    const { fileList = [] } = this.data;
+    fileList.push({ url: file.path });
+    this.setData({ fileList })
+    console.log(fileList)
+  },
 
+  onChange(event) {
+    // event.detail 为当前输入的值
+    console.log(event.detail);
+  },
   
   
   onTap(){
