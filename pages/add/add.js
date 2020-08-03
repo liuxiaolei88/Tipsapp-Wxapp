@@ -29,6 +29,12 @@ Page({
     console.log(fileList)
   },
 
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    this.setData({
+  
+    })},
+
   onChange(event) {
     // event.detail 为当前输入的值
     console.log(event.detail);
