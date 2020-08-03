@@ -28,12 +28,14 @@
   />
 </van-cell-group>
 
-
+<view class="stylei">
 <van-uploader file-list="{{ fileList }}" max-count="9" deletable="{{ true }}"  bind:after-read="afterRead"/>
+</view>
 
 
+<view class="stylei">
 <van-button bindtap="onTap" color="#3CB371" plain type="info" size="normal">分类{{value}}</van-button>
-
+</view>
 
 <van-action-sheet
   show="{{ show }}"
@@ -55,6 +57,7 @@
 <van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
 <van-calendar show="{{ show4 }}" bind:close="onClose4" bind:confirm="onConfirm4" />
    
-
+<view class="styles">
 <van-button  round bindtap="onClick" color="#3CB371" type="info" size="normal">提交</van-button>
+</view>
 </form>
