@@ -57,4 +57,5 @@
    
 
 <van-button  round bindtap="onClick" color="#3CB371" type="info" size="normal">提交</van-button>
+
 </form>
