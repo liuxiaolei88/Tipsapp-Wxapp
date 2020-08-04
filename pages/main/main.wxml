@@ -5,14 +5,13 @@
   <van-tab title="化妆品护肤品"></van-tab>
 </van-tabs>
 
-<view class="infoCard" >
-<van-card
-  num=""
-  desc=""
-  title=""
-  photo="{{ infoCard.imageURL }}"
-/>
-</view>
+<block class="infoCard"  wx:for="{{intemInfoArray}}"  wx:for-index="idx" wx:for-item="itemName"> 
+
+<text>x{{intemInfoArray[idx].count}}</text>
+<text>{{intemInfoArray[idx].remark}}</text>
+<text>{{intemInfoArray[idx].name}}</text>
+<image src="{{intemInfoArray[idx].photo}}"></image>
+</block>
 
 
 

@@ -1,2 +1,2 @@
 <!--pages/version/version.wxml-->
-<text>当前版本为1.0.0</text>
+<van-steps steps="{{ steps }}" active="{{ active }}"   direction="vertical"/>

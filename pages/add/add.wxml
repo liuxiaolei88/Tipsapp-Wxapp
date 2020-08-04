@@ -8,7 +8,8 @@
     label="物品名称"
     icon="question-o"
     placeholder="请输入物品名称"
-    bind:click-icon="onClickIcon"
+    bind:input="onChangeName"
+    
   />
 
   <van-field

@@ -6,7 +6,7 @@ Page({
   data: {
     motto: '欢迎来到云保质期管家',
     userInfo: {},
-    itemList:{},//物品清单
+    itemList:'',//物品清单
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -78,8 +78,10 @@ Page({
     })
  
     setTimeout(function () {
+
+
       wx.reLaunch({
-        url: '/pages/main/main',
+        url: '/pages/main/main?openid ='  ,
       })
     }, 3000);
   }

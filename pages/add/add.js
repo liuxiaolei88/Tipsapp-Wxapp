@@ -1,3 +1,6 @@
+const db = wx.cloud.database();
+const todos = db.collection('userToken');
+
 Page({
   data:{
     show:false,
@@ -18,6 +21,9 @@ Page({
     minDate: new Date(2019, 0, 1).getTime(),
     maxDate: new Date(2050, 0, 31).getTime(),
     fileList: [],
+    name:'',
+    remark:'',
+    count:'',
    
   },
   afterRead: function (event) {
@@ -35,11 +41,32 @@ Page({
   
     })},
 
-  onChange(event) {
+//获取物品名称信息
+  onChangeName(event) {
     // event.detail 为当前输入的值
     console.log(event.detail);
-  },
+   
   
+  },
+  //获取物品备注信息
+
+  onChangeRemark(event) {
+    // event.detail 为当前输入的值
+    console.log(event.detail);
+    var that = this
+    this.setData({
+
+    })
+  },
+  //获取物品数量信息
+  onChangeCount(event) {
+    // event.detail 为当前输入的值
+    console.log(event.detail);
+    var that = this
+    this.setData({
+
+    })
+  },
   
   onTap(){
     this.setData({
@@ -61,8 +88,13 @@ Page({
 
   },
   onClick(){
+// userToken.add({
+//   data:{
+//     infoName : 
+//   }
+// })
     wx.showToast({
-      title: '成功',
+      title: '已经成功提交啦！',
     })
 
   },
