@@ -11,7 +11,7 @@
     "pages/Q&A/Q&A"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#3CB371",
     "navigationBarTitleText": "云保质期管家",
     "navigationBarTextStyle": "white",

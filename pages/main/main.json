@@ -4,6 +4,8 @@
     "van-tab": "../../dist/tab/index",
     "van-tabs": "../../dist/tabs/index",
     "van-search": "../../dist/search/index",
-    "van-card": "../../dist/card/index"
+    "van-card": "../../dist/card/index",
+    "van-divider": "../../dist/divider/index"
+    
   }
 }

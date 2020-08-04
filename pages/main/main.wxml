@@ -7,10 +7,21 @@
 
 <block class="infoCard"  wx:for="{{intemInfoArray}}"  wx:for-index="idx" wx:for-item="itemName"> 
 
-<text>x{{intemInfoArray[idx].count}}</text>
-<text>{{intemInfoArray[idx].remark}}</text>
-<text>{{intemInfoArray[idx].name}}</text>
-<image src="{{intemInfoArray[idx].photo}}"></image>
+<view class="content">
+<view class="content1">
+<text class="infoName">{{intemInfoArray[idx].name}} </text>
+<text>数量：{{intemInfoArray[idx].count}}</text>
+<text>生产日期：{{intemInfoArray[idx].date1}}</text>
+<text>剩余天数：{{intemInfoArray[idx].date2}}</text>
+<text>备注：{{intemInfoArray[idx].remark}}</text>
+<text></text>
+</view>
+<view class="content2">
+<image src="{{intemInfoArray[idx].photo}}" style="width: 240rpx; height: 240rpx"></image>
+</view>
+
+</view>
+<van-divider />
 </block>
 
 
