@@ -15,6 +15,6 @@
   />
 </van-cell-group>
 </form>
-
+<view class="views">
 <van-button  round bindtap="onClick" color="#3CB371" van-button type="primary" size="normal">提交</van-button>
-
+</view>
