@@ -1,0 +1,65 @@
+
+<van-tabs active="{{ active }}" bind:change="onChange" color="#3CB371">
+  <van-tab title="食品"></van-tab>
+  <van-tab title="药品"></van-tab>
+  <van-tab title="化妆品护肤品"></van-tab>
+</van-tabs>
+
+<block class="infoCard"  wx:for="{{intemInfoArray}}"  wx:for-index="idx" wx:for-item="itemName"> 
+
+<<<<<<< HEAD
+<view class="content">
+=======
+<<<<<<< HEAD
+<view class="content">
+=======
+  <van-card
+  num="{{intemInfoArray[idx].count+''}}"
+  desc="{{intemInfoArray[idx].remark}}"
+  title="{{intemInfoArray[idx].name}}"
+  thumb="{{intemInfoArray[idx].photourl}}"
+  tag="{{intemInfoArray[idx].date2}}"
+  title_class="card"
+  
+>
+<view slot="footer" style="margin: 70rpx;" ><text></text></view>
+<view slot="footer" style="display: flex;">
+  <text style="font-size: 28rpx;font-weight: 300;">距离过期还有：           </text>
+  <van-count-down time="{{ time }}" format="DD 天 HH 时 mm 分 ss 秒"  />
+  </view>
+</van-card>
+
+<!-- <view class="content">
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+<view class="content1">
+<text class="infoName">{{intemInfoArray[idx].name}} </text>
+<text>数量：{{intemInfoArray[idx].count}}</text>
+<text>生产日期：{{intemInfoArray[idx].date1}}</text>
+<text>剩余天数：{{intemInfoArray[idx].date2}}</text>
+<text>备注：{{intemInfoArray[idx].remark}}</text>
+<text></text>
+</view>
+<view class="content2">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afc57f7 (new version)
+<image src="{{intemInfoArray[idx].photo}}" style="width: 240rpx; height: 240rpx"></image>
+</view>
+
+</view>
+<<<<<<< HEAD
+=======
+=======
+<image src="{{intemInfoArray[idx].photourl}}" style="width: 240rpx; height: 240rpx"></image>
+</view>
+
+</view> -->
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+<van-divider />
+</block>
+
+
+

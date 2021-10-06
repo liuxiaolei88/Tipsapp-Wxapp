@@ -1,0 +1,65 @@
+<!-- 用户信息 -->
+<view wx:if="{{isHide}}">
+  <view wx:if="{{canIUse}}">
+    <view class='header'>
+      <image src='/static/images/weixin_1.png'></image>
+    </view>
+
+    <view class='content'>
+      <view>申请获取以下权限</view>
+      <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      授权登录
+    </button>
+  </view>
+  <view wx:else>请升级微信版本</view>
+</view>
+<view wx:else>
+  <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  </view>
+<!-- 下面其他分类栏 -->
+<view class="other">
+<van-cell icon="chat-o" is-link url="/pages/Q&A/Q&A">
+  <view slot="title">
+    <view class="van-cell-text">Q&A</view>
+ </view>
+</van-cell>
+
+
+
+<van-cell  icon="shop-o" is-link url="/pages/feedback/feedback">
+<view slot="title">
+    <view class="van-cell-text">意见反馈</view>
+   </view>
+</van-cell>
+
+<van-cell  icon="shop-o" is-link url="/pages/version/version">
+  <view slot="title">
+    <view class="van-cell-text">版本信息</view>
+   </view>
+</van-cell>
+
+<van-cell  icon="shop-o" is-link url="/pages/aboutapp/aboutapp">
+  <view slot="title">
+    <view class="van-cell-text">关于小程序</view>
+   </view>
+</van-cell>
+
+<van-cell  icon="shop-o" is-link url="/pages/thank/thank">
+  <view slot="title">
+    <view class="van-cell-text">感谢名单</view>
+  </view>
+</van-cell>
+
+<van-cell  icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">重新登陆</view>
+  </view>
+</van-cell>
+
+</view>

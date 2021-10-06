@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "添加",
+  "usingComponents": {
+    
+    "van-datetime-picker": "../../dist/datetime-picker/index",
+    "van-button": "../../dist/button/index",
+    "van-action-sheet": "../../dist/action-sheet/index",
+    "van-rate": "../../dist/rate/index",
+    "van-field": "../../dist/field/index",
+    "van-uploader": "../../dist/uploader/index",
+    "van-calendar": "../../dist/calendar/index",
+    "van-stepper": "../../dist/stepper/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index"
+  }
+}

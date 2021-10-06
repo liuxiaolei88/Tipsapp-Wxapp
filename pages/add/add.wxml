@@ -1,0 +1,124 @@
+
+<!-- 添加信息页面 -->
+<form>
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    clearable
+    label="物品名称"
+    icon="question-o"
+    placeholder="请输入物品名称"
+    bind:input="onChangeName"
+    
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afc57f7 (new version)
+  />
+
+  <van-field
+    value="{{ remark }}"
+<<<<<<< HEAD
+=======
+=======
+    
+  />
+
+  <van-field
+    value="{{remark}}"
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+    type="remark"
+    label="备注"
+    placeholder="请输入备注"
+    border="{{ false }}"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afc57f7 (new version)
+  />
+  
+  <van-field
+    value="{{ number}}"
+<<<<<<< HEAD
+=======
+=======
+    bind:input='onChangeRemark'
+  />
+  
+  <van-field
+    value="{{number}}"
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+    type="number"
+    label="数量"
+    placeholder="请输入数量"
+    border="{{ false }}"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    bind:input='onChangeCount'
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+  />
+</van-cell-group>
+
+<view class="stylei">
+<van-uploader file-list="{{ fileList }}" max-count="9" deletable="{{ true }}"  bind:after-read="afterRead"/>
+</view>
+
+
+<view class="stylei">
+<<<<<<< HEAD
+<van-button bindtap="onTap" color="#3CB371" plain type="info" size="normal">分类{{value}}</van-button>
+=======
+<<<<<<< HEAD
+<van-button bindtap="onTap" color="#3CB371" plain type="info" size="normal">分类{{value}}</van-button>
+=======
+<van-button bindtap="onTap" color="#B0C4DE" plain type="info" size="normal">分类{{value}}</van-button>
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+</view>
+
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ arr }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+
+
+<van-cell title="生产日期" show-subtitle="true" value="{{ date1 }}" bind:click="onDisplay1" color="#3CB371" />
+<van-calendar show-subtitle="false" show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" color="#3CB371"/>
+
+<van-cell title="过期日期" value="{{ date2 }}" bind:click="onDisplay2" />
+<van-calendar show="{{ show2 }}" bind:close="onClose2" bind:confirm="onConfirm2" color="#3CB371"/>
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afc57f7 (new version)
+<van-cell title="提醒日期" value="{{ date3 }}" bind:click="onDisplay3" />
+<van-calendar show="{{ show3 }}" bind:close="onClose3" bind:confirm="onConfirm3" color="#3CB371"/>
+
+<van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
+<van-calendar show="{{ show4 }}" bind:close="onClose4" bind:confirm="onConfirm4" color="#3CB371"/>
+   
+<view class="styles">
+<van-button  round bindtap="onClick" color="#3CB371" type="info" size="normal">提交</van-button>
+<<<<<<< HEAD
+=======
+=======
+<!-- <van-cell title="提醒日期" value="{{ date3 }}" bind:click="onDisplay3" />
+<van-calendar show="{{ show3 }}" bind:close="onClose3" bind:confirm="onConfirm3" color="#3CB371"/>
+
+<van-cell title="开封日期" value="{{ date4 }}" bind:click="onDisplay4" />
+<van-calendar show="{{ show4 }}" bind:close="onClose4" bind:confirm="onConfirm4" color="#3CB371"/> -->
+   
+<view class="styles">
+<van-button  round bindtap="onClick" color="#B0C4DE" type="info" size="normal">提交</van-button>
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+</view>
+</form>

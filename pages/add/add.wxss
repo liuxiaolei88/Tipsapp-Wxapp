@@ -1,0 +1,12 @@
+.styles{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stylei{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}

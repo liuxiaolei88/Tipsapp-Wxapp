@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-steps": "../../dist/steps/index"
+  }
+}

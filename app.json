@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/log/log",
+    "pages/main/main",
+    "pages/add/add",
+    "pages/userdetail/userdetail",
+    "pages/version/version",
+    "pages/feedback/feedback",
+    "pages/thank/thank",
+    "pages/aboutapp/aboutapp",
+    "pages/Q&A/Q&A"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+<<<<<<< HEAD
+    "navigationBarBackgroundColor": "#3CB371",
+=======
+<<<<<<< HEAD
+    "navigationBarBackgroundColor": "#3CB371",
+=======
+    "navigationBarBackgroundColor": "#B0C4DE",
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+    "navigationBarTitleText": "云保质期管家",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true
+    
+    
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/main/main",
+      "text": "清单",
+      "iconPath": "icon/home.png",
+      "selectedIconPath": "icon/home Active.png"
+      
+      
+    },
+    {
+      "pagePath": "pages/add/add",
+      "text": "添加",
+      "iconPath": "icon/addto.png",
+      "selectedIconPath": "icon/addtoActive.png"
+     
+    },
+    {
+      "pagePath": "pages/userdetail/userdetail",
+      "text": "我的",
+      "iconPath": "icon/user.png",
+      "selectedIconPath": "icon/user Active.png"
+    } 
+  ]
+
+  },
+  
+  
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,21 @@
+{
+  "usingComponents": {
+    "van-sticky": "../../dist/sticky/index",
+    "van-tab": "../../dist/tab/index",
+    "van-tabs": "../../dist/tabs/index",
+    "van-search": "../../dist/search/index",
+    "van-card": "../../dist/card/index",
+<<<<<<< HEAD
+    "van-divider": "../../dist/divider/index"
+=======
+<<<<<<< HEAD
+    "van-divider": "../../dist/divider/index"
+=======
+    "van-divider": "../../dist/divider/index",
+    "van-count-down":"../../dist/count-down/index",
+    "van-swipe-cell":"../../dist/swipe-cell/index"
+>>>>>>> 486e2a0 (Initial Commit)
+>>>>>>> afc57f7 (new version)
+    
+  }
+}
