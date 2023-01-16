@@ -1,0 +1,35 @@
+._page{
+  font-size: 30rpx;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-left: 30rpx; */
+    /* margin-right: 30rpx; */
+    /* margin-top: 20rpx; */
+  }
+  
+  .content1{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content2{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .infoName
+  {
+    /* font-size: 45rpx; */
+    font-weight: 500;
+  }
+  .card
+  {
+    font-size: large;
+  }
+  .homecard{
+    /* margin:100rpx; */
+    border: 1px solid blue;
+  }
