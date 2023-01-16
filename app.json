@@ -1,51 +1,50 @@
 {
-  "pages": [
-    "pages/log/log",
-    "pages/main/main",
-    "pages/add/add",
-    "pages/userdetail/userdetail",
-    "pages/version/version",
-    "pages/feedback/feedback",
-    "pages/thank/thank",
-    "pages/aboutapp/aboutapp",
-    "pages/Q&A/Q&A"
-  ],
-  "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#3CB371",
-    "navigationBarTitleText": "云保质期管家",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh":true
-    
-    
-  },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/main/main",
-      "text": "清单",
-      "iconPath": "icon/home.png",
-      "selectedIconPath": "icon/home Active.png"
-      
-      
+    "pages": [
+        "pages/log/log",
+        "pages/main/main",
+        "pages/add/add",
+        "pages/userdetail/userdetail",
+        "pages/version/version",
+        "pages/feedback/feedback",
+        "pages/thank/thank",
+        "pages/aboutapp/aboutapp",
+        "pages/Q&A/Q&A",
+        "pages/before_add/before_add",
+        "pages/shared/shared",
+        "pages/share/share",
+        "pages/sharelist/sharelist"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#B0C4DE",
+        "navigationBarTitleText": "Date Minder",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
     },
-    {
-      "pagePath": "pages/add/add",
-      "text": "添加",
-      "iconPath": "icon/addto.png",
-      "selectedIconPath": "icon/addtoActive.png"
-     
+    "tabBar": {
+        "selectedColor":"#B0C4DE",
+        "list": [
+            {
+                "pagePath": "pages/main/main",
+                "text": "清单",
+                "iconPath": "icon/home.png",
+                "selectedIconPath": "icon/homeA.png"
+            },
+            {
+                "pagePath": "pages/add/add",
+                "text": "AI录入",
+                "iconPath": "icon/add.png",
+                "selectedIconPath": "icon/addA.png"
+            },
+            {
+                "pagePath": "pages/userdetail/userdetail",
+                "text": "我的",
+                "color":"#B0C4DE",
+                "iconPath": "icon/my.png",
+                "selectedIconPath": "icon/myA.png"
+            }
+        ]
     },
-    {
-      "pagePath": "pages/userdetail/userdetail",
-      "text": "我的",
-      "iconPath": "icon/user.png",
-      "selectedIconPath": "icon/user Active.png"
-    } 
-  ]
-
-  },
-  
-  
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

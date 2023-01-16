@@ -1,106 +1,109 @@
 {
-	"description": "项目配置文件",
-	"cloudfunctionRoot": "cloud/",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": false,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
-	"appid": "wxa8a79d2f72dd776a",
-	"projectname": "daytips",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/add/add",
-					"pathName": "pages/add/add",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/userdetail/userdetail",
-					"pathName": "pages/userdetail/userdetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/main/main",
-					"pathName": "pages/main/main",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "/pages/Q&A/Q&A",
-					"pathName": "/pages/Q&A/Q&A",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/Q&A/Q&A",
-					"pathName": "pages/Q&A/Q&A",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "cloudfunctionRoot": "cloud/",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "showES6CompileOption": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.20.0",
+  "appid": "wxa8a79d2f72dd776a",
+  "projectname": "daytips",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/add/add",
+          "pathName": "pages/add/add",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/userdetail/userdetail",
+          "pathName": "pages/userdetail/userdetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/main/main",
+          "pathName": "pages/main/main",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "/pages/Q&A/Q&A",
+          "pathName": "/pages/Q&A/Q&A",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/Q&A/Q&A",
+          "pathName": "pages/Q&A/Q&A",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

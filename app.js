@@ -8,6 +8,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    homelist:[],
+    userInfo: null,
+    cloudID:'',
+    avatarUrl:'',
+    nickName:''
   }
 })

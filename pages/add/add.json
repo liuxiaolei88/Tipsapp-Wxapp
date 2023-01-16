@@ -11,6 +11,8 @@
     "van-calendar": "../../dist/calendar/index",
     "van-stepper": "../../dist/stepper/index",
     "van-cell": "../../dist/cell/index",
-    "van-cell-group": "../../dist/cell-group/index"
-  }
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-divider":"../../dist/divider/index"
+  },
+  "style": "v2"
 }

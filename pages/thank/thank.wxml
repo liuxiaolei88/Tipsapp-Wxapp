@@ -1,2 +1,4 @@
 <!--pages/thank/thank.wxml-->
-<text></text>
+<view style="display: flex;flex-direction: column;justify-content: center;">
+<image  style="width: 740rpx;height: 800rpx;flex-direction: column;justify-content: center;margin-right: 1500rpx;" src="/icon/thank.png"></image>
+</view>

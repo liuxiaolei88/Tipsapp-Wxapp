@@ -1,1 +1,5 @@
 /* pages/version/version.wxss */
+.my
+{
+  /* font-size: 50rpx; */
+}

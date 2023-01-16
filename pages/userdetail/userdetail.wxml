@@ -19,44 +19,52 @@
 <view wx:else>
   <view class="userinfo">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text selectable="true" class="userinfo-nickname">{{userInfo.nickName}}</text>
+     
   </view>
+   <text style="padding-left: 130rpx;">{{userInfo.cloudid}}</text>
   </view>
 <!-- 下面其他分类栏 -->
 <view class="other">
+
+
+<van-cell  icon="friends-o" is-link url="/pages/share/share">
+<view slot="title">
+    <view class="van-cell-text">共享清单</view>
+   </view>
+</van-cell>
+
 <van-cell icon="chat-o" is-link url="/pages/Q&A/Q&A">
   <view slot="title">
     <view class="van-cell-text">Q&A</view>
  </view>
 </van-cell>
 
-
-
-<van-cell  icon="shop-o" is-link url="/pages/feedback/feedback">
+<van-cell  icon="comment-circle-o" is-link url="/pages/feedback/feedback">
 <view slot="title">
     <view class="van-cell-text">意见反馈</view>
    </view>
 </van-cell>
 
-<van-cell  icon="shop-o" is-link url="/pages/version/version">
+<van-cell  icon="underway-o" is-link url="/pages/version/version">
   <view slot="title">
     <view class="van-cell-text">版本信息</view>
    </view>
 </van-cell>
 
-<van-cell  icon="shop-o" is-link url="/pages/aboutapp/aboutapp">
+<van-cell  icon="eye-o" is-link url="/pages/aboutapp/aboutapp">
   <view slot="title">
     <view class="van-cell-text">关于小程序</view>
    </view>
 </van-cell>
 
-<van-cell  icon="shop-o" is-link url="/pages/thank/thank">
+<van-cell  icon="flower-o" is-link url="/pages/thank/thank">
   <view slot="title">
     <view class="van-cell-text">感谢名单</view>
   </view>
 </van-cell>
 
-<van-cell  icon="shop-o" is-link>
+<van-cell  icon="replay" is-link>
   <view slot="title">
     <view class="van-cell-text">重新登陆</view>
   </view>

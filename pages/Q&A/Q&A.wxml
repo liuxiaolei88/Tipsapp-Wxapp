@@ -1,3 +1,4 @@
 <!--pages/Q&A/Q&A.wxml-->
-<image src="/icon/Q&A.png" mode="aspectFill" style="width: 780rpx; height: 1400rpx">
+
+<image src="/icon/tips.png" mode="aspectFill" style="width: 750rpx; height: 850rpx;margin-top: 30rpx;">
 </image>

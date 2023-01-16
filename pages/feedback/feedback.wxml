@@ -1,7 +1,8 @@
 <!--pages/feedback/feedback.wxml-->
 
 <view class="views">
-  <text style="justify-content: center">请输入您的反馈 </text>
+
+  <text style="margin-top: 30rpx;margin-bottom: 30rpx;font-weight: 700; font-size: large;justify-content: center">请输入您的反馈 </text>
 </view>
 <form>
 <van-cell-group>
@@ -14,7 +15,10 @@
     size="large"
   />
 </van-cell-group>
+
 </form>
 <view class="views">
-<van-button  round bindtap="onClick" color="#3CB371" van-button type="primary" size="normal">提交</van-button>
+
+  <view style="margin-top: 400rpx;"></view>
+<van-button  round bindtap="onClick" color="#B0C4DE" van-button type="primary" size="normal">提交</van-button>
 </view>

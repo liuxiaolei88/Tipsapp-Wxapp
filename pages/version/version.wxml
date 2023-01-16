@@ -1,2 +1,3 @@
 <!--pages/version/version.wxml-->
-<van-steps steps="{{ steps }}" active="{{ active }}"   direction="vertical"/>
+<view style="margin-top: 30rpx;"></view>
+<van-steps custom-class="my"  desc-class = "my"steps="{{ steps }}" active="{{ active }}"   direction="vertical" active-color="gray"/>
