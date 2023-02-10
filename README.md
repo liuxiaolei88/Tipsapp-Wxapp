@@ -72,5 +72,5 @@ WXML+WXSS+JavaScript+Node.js+NoSQL(云存储技术)
 提供意见反馈界面可以像项目开发者进行反馈  
 ![img_15.png](img_15.png)
 
-#update
+## update
 还需要增加的功能：1:删除功能。2:增加OCR识别返回填写。
