@@ -1,5 +1,5 @@
 const db = wx.cloud.database({
-  env: 'daytips-rr1wj'
+  env: 'tipsapp-4g4e3qbv29f41b1c'
 });
 const todos = db.collection('userToken');
 var _sort='';
@@ -71,28 +71,17 @@ Page({
     })
   },
   afterRead: function (event) {
-    
-    // console.log(event);
-    const {
-      file
-    } = event.detail;
-    const {
-      fileList = []
-    } = this.data;
-    fileList.push({
-      url: file.path
-    });
-    this.setData({
-      fileList
-    })
-    
-  
-  
-   
+    const {file} = event.detail;
+    const {fileList = []} = this.data;
+    fileList.push({url: file.path});
+    this.setData({fileList})
+
+
     wx.getFileSystemManager().readFile({
       filePath: this.data.fileList[0].url, //选择图片返回的相对路径
       encoding: 'base64', //编码格式
       complete: (res) => {
+        console.log(res)
         console.log('comp')
       },
       success: (res) => {
@@ -103,7 +92,7 @@ Page({
       },
       success: res => {
         wx.request({
-          url: "https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token=24.17950b62b6376407c24b16fa3b403afc.2592000.1635080413.282335-21434170",
+          url: "https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token=24.2f63c2c2a4286d7c14a8d8bc988462a1.2592000.1680336750.282335-21434170",
           data: {
             image: res.data,
             image_type: "BASE64"
@@ -148,8 +137,6 @@ Page({
   },
   //获取物品数量信息
   onChangeCount(event) {
-    // event.detail 为当前输入的值
-    // console.log(event.detail);
     var that = this
     this.setData({
       number:event.detail
@@ -188,23 +175,23 @@ Page({
 
   },
   onSelecthome(res) {
-    // console.log(res.detail.name)
     this.setData({
       valuehome: res.detail.name
     })
   },
   onClick() {
-     var that = this
+    var that = this
+    console.log('触发click事件')
     wx.cloud.uploadFile({
-      cloudPath: 'img/'+new Date().getTime()+'.png',
+      // cloudPath:'example.png',
+      cloudPath: "img/" + new Date().getTime()+'.png',
+      // filePath:'http://tmp/6xPefYkamSFA281c52ee03d14b17596ec13131b0d3a5.png'
       filePath: this.data.fileList[0].url, // 小程序临时文件路径
+         
     }).then(res => {
+      console.log('触发回掉')
+      console.log(res)
       // get resource ID
-      console.log('1111')
-      // console.log(fileList[0].url)
-      console.log(res.fileID)
-      // realptotopath:res.fileID
-
 
       this.clouddata = {
         count: this.data.number,
@@ -217,9 +204,7 @@ Page({
         date1:this.data.date1,
         date2:this.data.date2,
         token:app.globalData.cloudID
-      }
-      console.log(this.clouddata)
-  
+      } 
       todos.add({
         data:this.clouddata,
         // success: () => console.log("成功了"),
@@ -273,6 +258,8 @@ Page({
       // handle error
       console.log('出错')
       console.log(error)
+      console.log(cloudPath)
+      console.log(filePath)
     })
     // this.clouddata = {
     //   count: this.data.number,

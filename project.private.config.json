@@ -1,47 +1,35 @@
 {
-  "setting": {},
+  "setting": {
+    "compileHotReLoad": true
+  },
   "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "id": -1,
           "name": "pages/add/add",
           "pathName": "pages/add/add",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/userdetail/userdetail",
           "pathName": "pages/userdetail/userdetail",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/main/main",
           "pathName": "pages/main/main",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "/pages/Q&A/Q&A",
           "pathName": "/pages/Q&A/Q&A",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/Q&A/Q&A",
           "pathName": "pages/Q&A/Q&A",
           "query": "",
@@ -115,5 +103,7 @@
         }
       ]
     }
-  }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "tipsapp-Wxapp"
 }

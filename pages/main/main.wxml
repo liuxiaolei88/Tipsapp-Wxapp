@@ -8,7 +8,6 @@
 <block class="infoCard" wx:for="{{intemInfoArray}}" wx:for-index="idx" wx:for-item="itemName">
 <!-- <image img></image> -->
   <van-card num="{{intemInfoArray[idx].count}}" desc="{{intemInfoArray[idx].remark}}"
-
     title="{{intemInfoArray[idx].name}}" thumb="{{intemInfoArray[idx].photourl}}" tag="{{intemInfoArray[idx].date2}}"
     title_class="card">
     <view slot="footer" style="margin: 70rpx;"><text></text></view>

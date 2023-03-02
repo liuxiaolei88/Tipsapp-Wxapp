@@ -1,7 +1,7 @@
 const app = getApp()
 const util = require('../../utils/util.js')
 const db = wx.cloud.database({
-    env: 'daytips-rr1wj'
+    env: 'tipsapp-4g4e3qbv29f41b1c'
 });
 Page({
 

@@ -3,7 +3,7 @@ App({
   onLaunch: function () {
     // 云开发初始化
     wx.cloud.init({
-      env: "daytips-rr1wj",
+      env: "tipsapp-4g4e3qbv29f41b1c",
       traceUser: true
     })
   },
