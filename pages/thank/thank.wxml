@@ -1,4 +1,30 @@
 <!--pages/thank/thank.wxml-->
 <view style="display: flex;flex-direction: column;justify-content: center;">
-<image  style="width: 740rpx;height: 800rpx;flex-direction: column;justify-content: center;margin-right: 1500rpx;" src="/icon/thank.png"></image>
+<h1 class="priceTitle">项目获奖&感谢名单</h1>
+<van-card
+  desc="感谢郭普尧、刘思程、李挺、安镇琦、刘经栋、邱明睿、刘桂麟、陈思怡同学的辛苦付出！"
+  title="第十二届“挑战杯”全区大学生创业竞赛 二等奖 "
+  thumb="{{ 'https://7469-tipsapp-4g4e3qbv29f41b1c-1302771542.tcb.qcloud.la/material/price1.png?sign=e2e7d76b3ae4824a7619743ca293f8e2&t=1679824137' }}"
+/>
+<van-card
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ 'https://7469-tipsapp-4g4e3qbv29f41b1c-1302771542.tcb.qcloud.la/material/price2.png?sign=51df31638e9d4f59d7e41f0a15e83118&t=1679824671' }}"
+/>
+<van-card
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ 'https://7469-tipsapp-4g4e3qbv29f41b1c-1302771542.tcb.qcloud.la/material/price3.jpeg?sign=9cfe62ff6bee3cba8eb359b1e66d5698&t=1679824708' }}"
+/>
+<van-card
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ 'https://7469-tipsapp-4g4e3qbv29f41b1c-1302771542.tcb.qcloud.la/material/price4.png?sign=96b92b67af1e6b94cfeacaa24aab52d4&t=1679824779' }}"
+/>
+<van-card
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ 'https://7469-tipsapp-4g4e3qbv29f41b1c-1302771542.tcb.qcloud.la/material/price5.png?sign=638827f51b72663d0c1e0f300236a5e2&t=1679824797' }}"
+/>
+<div class="bottom"></div>
 </view>
