@@ -3,13 +3,11 @@
 <form>
 <van-cell-group>
   <van-field
-    value="{{ username }}"
+    value="{{ itemName }}"
     clearable
     label="物品名称"
     placeholder="请输入物品名称"
-    bind:input="onChangeName"
-    
-    
+    bind:input="onChangeName" 
   />
 
   <van-field
@@ -39,7 +37,7 @@
 
 <view class="stylei">
   <text style="margin: 30rpx;margin-right:107rpx;font-weight: 100rpx;font-size: 27rpx;">选择类别：</text>
-<van-button plain hairline bindtap="onTap" color="#B0C4DE" plain type="info" size="normal">{{value}}</van-button>
+<van-button plain hairline bindtap="onTap" color="#B0C4DE" plain type="info" size="normal">{{itemSort}}</van-button>
 </view>
 <view class="stylei">
   <text style="margin: 30rpx;font-weight: 100rpx;font-size: 27rpx;">选择添加的清单：</text>
