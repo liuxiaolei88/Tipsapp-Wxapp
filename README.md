@@ -5,7 +5,7 @@
 ## 技术栈：
 WXML+WXSS+JavaScript+Node.js+NoSQL(云存储技术)  
 
-![img_16.png](img_16.png)
+
   
 
 ## 运行方式
