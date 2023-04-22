@@ -1,0 +1,13 @@
+<!--pages/itemUserList.wxml-->
+
+
+
+<van-cell-group title="清单拥有者:">
+  <van-cell  icon="user-o" title="{{listOwn}}" value="读写" />
+</van-cell-group>
+<van-cell-group title="清单加入者：">
+  <view wx:for="{{listAdd}}">
+    <van-cell icon="user-o" title="{{item['name']}}" value="{{item['aut']}}" />
+  </view>
+
+</van-cell-group>

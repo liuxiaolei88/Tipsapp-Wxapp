@@ -107,6 +107,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "pages/itemUserList/itemUserList",
+          "pathName": "pages/itemUserList/itemUserList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

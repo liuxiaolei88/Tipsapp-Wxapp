@@ -1,13 +1,20 @@
 <view style="margin: 10rpx;"></view>
-<block class="infoCard" wx:for="{{intemInfoArray}}" wx:for-index="idx" wx:for-item="itemName">
 
-  <van-card num="{{intemInfoArray[idx].count+''}}" desc="{{intemInfoArray[idx].remark}}"
-    title="{{intemInfoArray[idx].name}}" thumb="{{intemInfoArray[idx].photourl}}" tag="{{intemInfoArray[idx].date2}}"
-    title_class="card">
+<!-- 物品列表 -->
+<block class="infoCard" wx:for="{{intemInfoArray}}" wx:for-index="idx" wx:for-item="itemName">
+  <van-card num="{{intemInfoArray[idx].count+''}}" desc="{{intemInfoArray[idx].remark}}" title="{{intemInfoArray[idx].name}}" thumb="{{intemInfoArray[idx].photourl}}" tag="{{intemInfoArray[idx].date2}}" title_class="card">
     <view slot="footer" style="margin: 70rpx;"><text></text></view>
+    <view slot="footer">
+      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="editMyItem">编辑</van-button>
+      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="deleteMyItem">删除</van-button>
+
+      <view slot="footer" style="margin: 70rpx;"><text></text></view>
+    </view>
     <view slot="footer" style="display: flex;">
       <text style="font-size: 28rpx;font-weight: 300;">距离过期还有： </text>
-     <view>{{intemInfoArray[idx].counts}}天</view>
+      <view>{{intemInfoArray[idx].counts}}天</view>
     </view>
   </van-card>
 </block>
+<view style="margin: 10rpx;"></view>
+<van-button style="margin: 20rpx; margin-left: 220rpx;" plain hairline color="#B0C4DE" bindtap="lookPeopleList">查看人员列表</van-button>

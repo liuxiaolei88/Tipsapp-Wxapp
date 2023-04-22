@@ -3,8 +3,8 @@ const util = require('../../utils/util.js')
 const db = wx.cloud.database({
     env: 'tipsapp-4g4e3qbv29f41b1c'
 });
-Page({
 
+Page({
     data: {
         userOpenId: "",
         intemInfoArray: [],
@@ -12,10 +12,12 @@ Page({
         // *1000代表有多少秒
         time: 3 * 1000,
         activeKey: 0,
+        itemOwer: '',
+        itemAdd:[]
+
     },
 
     ontimeChange(e) {
-
         this.setData({
             timeData: e.detail,
 
@@ -31,6 +33,10 @@ Page({
                 homeid: options.name,
             }).get({
                 success: (res) => {
+                    console.log(res.data[0]);
+                    //记录拥有者
+                    var itemOwer = res.data[0].owner.username
+                    var itemAdd = res.data[0].guest
                     // console.log(res.data[0].info)
                     let temp = res.data[0].info
                     let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
@@ -40,8 +46,11 @@ Page({
                         return element
                     });
                     console.log(tem);
+
                     this.setData({
-                        intemInfoArray: tem
+                        intemInfoArray: tem,
+                        itemOwer:itemOwer,
+                        itemAdd:itemAdd 
                     })
                 }
             })
@@ -124,5 +133,13 @@ Page({
 
     },
 
+    // 查看谁加入了这个清单
+    lookPeopleList(){
+      var that = this
+      console.log(that.data.itemOwer);
+      wx.navigateTo({
+        url: '../itemUserList/itemUserList?itemObj='+JSON.stringify({'owe':that.data.itemOwer,'add':that.data.itemAdd}),
+      })
+    }
 
 })

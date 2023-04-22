@@ -1,0 +1,10 @@
+/* pages/itemUserList.wxss */
+.allView{
+  /* display: flex;
+  align-items: flex-start;
+  flex-direction: column; */
+}
+.title{
+  font-size: 25px;
+  color:#5B5B5b;
+}

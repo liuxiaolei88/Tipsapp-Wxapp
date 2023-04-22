@@ -11,6 +11,7 @@
     "van-dialog": "../../dist/dialog/index",
     "van-notify": "../../dist/notify/index",
     "van-sidebar": "../../dist/sidebar/index",
-    "van-sidebar-item": "../../dist/sidebar-item/index"
+    "van-sidebar-item": "../../dist/sidebar-item/index",
+    "van-button": "../../dist/button/index"
   }
 }

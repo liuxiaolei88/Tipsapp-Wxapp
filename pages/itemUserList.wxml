@@ -1,0 +1,7 @@
+<!--pages/itemUserList.wxml-->
+<text>pages/itemUserList.wxml</text>
+<text>清单拥有者:{{listOwn}}</text>
+<text>清单加入者：</text>
+<text>{{}}</text>
+
+
