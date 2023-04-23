@@ -12,32 +12,34 @@ Page({
     // *1000代表有多少秒
     time: 3 * 1000,
     activeKey: 0,
-    itemOwer: '',
-    itemAdd: []
+    itemOwer: '',//用于记录该清单的创建者
+    itemAdd: [],//用于记录该清单的加入者
+    itemId:'',//用于记录共享清单的Id
 
   },
 
   ontimeChange(e) {
     this.setData({
       timeData: e.detail,
-
     });
   },
+
   //获取初始OpenId和基本信息
   onLoad: function (options) {
-
     var that = this
-    //var intemInfoArray = that.data.intemInfoArray
     db.collection('homelist')
       .where({
         homeid: options.name,
       }).get({
         success: (res) => {
           console.log(res.data[0]);
+
           //记录拥有者
           var itemOwer = res.data[0].owner.username
           var itemAdd = res.data[0].guest
-          // console.log(res.data[0].info)
+          // 清单编号
+          var itemId = res.data[0]._id
+          
           let temp = res.data[0].info
           let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
           let tem = res.data[0].info.map(element => {
@@ -50,7 +52,8 @@ Page({
           this.setData({
             intemInfoArray: tem,
             itemOwer: itemOwer,
-            itemAdd: itemAdd
+            itemAdd: itemAdd,
+            itemId:itemId
           })
         }
       })
@@ -64,16 +67,6 @@ Page({
   onPullDownRefresh: function () {
 
     var that = this
-    // var userOpenId = this.data.userOpenId
-    // wx.getStorage({
-    //   key: 'userOpenId',
-    //   success: function (res) {
-    //     that.setData({//拿到缓存中的数据并渲染到页面
-    //       userOpenId: res.data
-    //     })
-    //   }
-    // })
-    // console.log(userOpenId)
     db.collection('userToken')
       .where({
         token: db.command.in([app.globalData.cloudID]),
@@ -144,13 +137,17 @@ Page({
       }),
     })
   },
+
+  // 删除
   deleteMyItem(e) {
     var that = this
     var index = e.target.dataset.idx
     this.data.intemInfoArray.splice(index, 1)
     var newInfo = this.data.intemInfoArray
+    var itemId = this.data.itemId
+    console.log(itemId);
     console.log(this.data.intemInfoArray);
-    db.collection('homelist').doc('a62c329764002629000603853e295d9c').update({
+    db.collection('homelist').doc(itemId).update({
       // data 传入需要局部更新的数据
       data: {
         // 表示将 done 字段置为 true
