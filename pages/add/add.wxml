@@ -31,7 +31,7 @@
 
 <view class="stylei" style="margin-top: 20rpx;">
 <text style="margin: 30rpx;font-weight: 100rpx;font-size: 27rpx;">上传照片：</text>
-<van-uploader file-list="{{ fileList }}" max-count="9" deletable="{{ true }}"  bind:after-read="afterRead"/>
+<van-uploader file-list="{{ fileList }}" max-count="9"  bind:after-read="afterRead"/>
 </view>
 <van-divider dashed />
 

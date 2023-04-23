@@ -1,12 +1,12 @@
 <view style="margin: 10rpx;"></view>
 
 <!-- 物品列表 -->
-<block class="infoCard" wx:for="{{intemInfoArray}}" wx:for-index="idx" data-idx = "1" wx:for-item="itemName">
+<block class="infoCard" wx:for="{{intemInfoArray}}" wx:for-index="idx" data-idx="1" wx:for-item="itemName">
   <van-card num="{{intemInfoArray[idx].count+''}}" desc="{{intemInfoArray[idx].remark}}" title="{{intemInfoArray[idx].name}}" thumb="{{intemInfoArray[idx].photourl}}" tag="{{intemInfoArray[idx].date2}}" title_class="card">
     <view slot="footer" style="margin: 70rpx;"><text></text></view>
     <view slot="footer">
-      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="editMyItem">编辑</van-button>
-      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="deleteMyItem" data-idx = "{{idx}}" >删除</van-button>
+      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="editMyItem" data-idx="{{idx}}">编辑</van-button>
+      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="deleteMyItem" data-idx="{{idx}}">删除</van-button>
 
       <view slot="footer" style="margin: 70rpx;"><text></text></view>
     </view>

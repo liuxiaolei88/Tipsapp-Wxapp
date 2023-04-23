@@ -15,6 +15,7 @@ Page({
     itemOwer: '',//用于记录该清单的创建者
     itemAdd: [],//用于记录该清单的加入者
     itemId:'',//用于记录共享清单的Id
+    listName:''//用于记录清单名称
 
   },
 
@@ -32,14 +33,16 @@ Page({
         homeid: options.name,
       }).get({
         success: (res) => {
+          console.log('输出查询');
           console.log(res.data[0]);
-
           //记录拥有者
           var itemOwer = res.data[0].owner.username
           var itemAdd = res.data[0].guest
           // 清单编号
           var itemId = res.data[0]._id
-          
+          // 清单名称
+          var listName = res.data[0].homeid
+
           let temp = res.data[0].info
           let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
           let tem = res.data[0].info.map(element => {
@@ -47,13 +50,13 @@ Page({
             element.counts = past - now
             return element
           });
-          console.log(tem);
-
+          
           this.setData({
             intemInfoArray: tem,
             itemOwer: itemOwer,
             itemAdd: itemAdd,
-            itemId:itemId
+            itemId:itemId,
+            listName:listName
           })
         }
       })
@@ -65,7 +68,6 @@ Page({
 
   //下拉刷新
   onPullDownRefresh: function () {
-
     var that = this
     db.collection('userToken')
       .where({
@@ -126,7 +128,7 @@ Page({
 
   },
 
-  // 查看谁加入了这个清单
+  // 查看谁加入了这个清单,带参跳转
   lookPeopleList() {
     var that = this
     console.log(that.data.itemOwer);
@@ -162,7 +164,28 @@ Page({
       intemInfoArray: that.data.intemInfoArray
     })
 
+  },
+
+  //编辑（带参跳转到添加页面）
+  editMyItem(e){
+    var that = this
+    var index = e.target.dataset.idx
+    // 获取该item的信息
+    var Info = this.data.intemInfoArray
+    var listName = this.data.listName
+    var thisItemInfo = Info[index]
+    console.log('输出本次点击的物品信息');
+    console.log(thisItemInfo);
+    wx.redirectTo({
+      url: '../add/add?itemObj=' + JSON.stringify({
+        'item': thisItemInfo,
+        'listName':listName,
+        'flag':1 ,//用于在add页面判断是否是更新，还是重新录入,
+        'listId':this.data.itemId,//用于更新的时候确定更新哪一个列表
+        'itemIndex':index,//用于更新的时候确定更新哪一条信息，
+        'allListItem':Info//用于更新数组（这个实现方式并不好，但是目前没有想到更好的办法）
+      }),
+    })
+
   }
-
-
 })

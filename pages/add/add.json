@@ -13,6 +13,5 @@
     "van-cell": "../../dist/cell/index",
     "van-cell-group": "../../dist/cell-group/index",
     "van-divider":"../../dist/divider/index"
-  },
-  "style": "v2"
+  }
 }

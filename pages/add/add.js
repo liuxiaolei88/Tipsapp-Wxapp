@@ -47,10 +47,42 @@ Page({
     // 预定义一些物品名称，目的是自动填写物品类别
     foodItem: ['蛋糕', '咖啡', '巧克力', '面包', '果冻'],
     makeUpItem: ['口红', '粉底液', '眼影'],
-    medicinalItem: ['风油精', '碘酒', '酒精', '三金 桂林西瓜霜喷剂 3.5g']
+    medicinalItem: ['风油精', '碘酒', '酒精', '三金 桂林西瓜霜喷剂 3.5g'],
+    flag: 0, //用于判断是否是更新还是添加
+    allItem:[],//用于存整个list的所有，但每次只更新对呀index的物品
+    itemIndex:0,//用于存储下标
+    photoURL:'',
+    listId:''//用于更新列表
 
   },
-  onLoad: function (options) {},
+
+  onLoad: function (options) {
+    // 在这里接一下参数
+    let params = JSON.parse(options.itemObj)
+    console.log(params);
+    var photoList = []
+    photoList.push({
+      url: params.item.photourl
+    })
+    console.log(photoList);
+    this.setData({
+      flag: params.flag,
+      itemSort: params.item.sort, //种类
+      valuehome: params.listName,
+      date1: params.item.date1,
+      show1: false,
+      date2: params.item.date2,
+      show2: false,
+      fileList: photoList, //图片url
+      remark: params.item.remark, //备注
+      itemName: params.item.name, //物品名称
+      number: params.item.count, //数量
+      itemIndex:params.itemIndex, //下标
+      allItem:params.allListItem,//整个清单
+      photoURL:params.item.photourl,//图片URL，不是key-value形式
+      listId:params.listId//更新清单的id
+    })
+  },
   onShow: function () {
     this.getHomeList()
   },
@@ -207,7 +239,7 @@ Page({
                     // 判断是否是月份形式
                     if (outDate.indexOf('个月') !== -1) {
                       var monthNum = parseInt(outDate.split('个月'))
-                      console.log(monthNum );
+                      console.log(monthNum);
                       var year = monthNum / 12
                       console.log(year);
                       var birthDaterYear = parseInt(birthDate.split('/')[0])
@@ -215,10 +247,10 @@ Page({
                       console.log(outDateYear);
                       var outDateMonth = parseInt(birthDate.split('/')[1])
                       console.log(outDateMonth);
-                      var outDateDay= parseInt(birthDate.split('/')[2])
+                      var outDateDay = parseInt(birthDate.split('/')[2])
                       console.log(outDateDay);
-                      birthDate = birthDaterYear+'/'+outDateMonth+'/'+outDateDay
-                      var outDateFin = outDateYear+'/'+outDateMonth+'/'+outDateDay
+                      birthDate = birthDaterYear + '/' + outDateMonth + '/' + outDateDay
+                      var outDateFin = outDateYear + '/' + outDateMonth + '/' + outDateDay
                       console.log(outDateFin);
                     } else {
                       console.log('');
@@ -229,7 +261,7 @@ Page({
               }
               this.setData({
                 date1: birthDate,
-                date2:outDateFin
+                date2: outDateFin
               })
 
             }
@@ -306,89 +338,121 @@ Page({
       valuehome: res.detail.name
     })
   },
+
+  // 提交
   onClick() {
-    var that = this
-    wx.cloud.uploadFile({
-      // cloudPath:'example.png',
-      cloudPath: "img/" + new Date().getTime() + '.png',
-      // filePath:'http://tmp/6xPefYkamSFA281c52ee03d14b17596ec13131b0d3a5.png'
-      filePath: this.data.fileList[0].url, // 小程序临时文件路径
+    // flag=1是更新列表
+    if (this.data.flag === 1) {
+      var allList = this.data.allItem
+      var index = this.data.itemIndex
+      console.log('输出更新前的');
+      console.log(allList);
+      allList[index].count=this.data.number
+      allList[index].data1=this.data.data1
+      allList[index].data2=this.data.data2
+      allList[index].name=this.data.itemName
+      allList[index].remark=this.data.remark
+      allList[index].sort=_sort
+      allList[index].photourl=this.data.photoURL
+      allList[index].token=app.globalData.cloudID
+      
 
-    }).then(res => {
-      console.log('触发回掉')
-      console.log(res)
-      // get resource ID
-
-      this.clouddata = {
-        count: this.data.number,
-        data1: this.data.data1,
-        // data2: this.data.data2,
-        name: this.data.itemName,
-        remark: this.data.remark,
-        sort: _sort,
-        photourl: res.fileID,
-        date1: this.data.date1,
-        date2: this.data.date2,
-        token: app.globalData.cloudID
-      }
-      todos.add({
-        data: this.clouddata,
-        // success: () => console.log("成功了"),
-        error: res => console.log(res)
-      })
-      var infoo = []
-      db.collection('homelist').where({
-          homeid: this.data.valuehome
+      db.collection('homelist').doc(this.data.listId).update({
+         data: {
+           info: db.command.set({
+             info: allList
+           })
+       },
+         success: function (res) {
+           console.log('更新成功')
+         }
+       })
+    }
+    // flag=0是直接加入列表，默认=0
+    else {
+      var that = this
+      wx.cloud.uploadFile({
+        cloudPath: "img/" + new Date().getTime() + '.png',
+        filePath: this.data.fileList[0].url, // 小程序临时文件路径
+      }).then(res => {
+        console.log('触发回掉')
+        console.log(res)
+        // get resource ID
+  
+        // 提交的数据
+        this.clouddata = {
+          count: this.data.number,
+          data1: this.data.data1,
+          data2: this.data.data2,
+          name: this.data.itemName,
+          remark: this.data.remark,
+          sort: _sort,
+          photourl: res.fileID,
+          token: app.globalData.cloudID
+        }
+        // 这里需要判断是更新还是添加
+        // flag=1的时候是更新
+       
+        todos.add({
+          data: this.clouddata,
+          // success: () => console.log("成功了"),
+          error: res => console.log(res)
         })
-        .get().then((res) => {
-          infoo = res.data[0]
-          infoo.info.push(this.clouddata)
-          console.log(infoo)
-        })
-        .then(() => {
-          db.collection('homelist').doc(infoo._id).update({
-            data: {
-              info: infoo.info
-            }
-          }).then((res) => {
-            console.log(res)
+        var infoo = []
+        // 放到对应清单
+        db.collection('homelist').where({
+            homeid: this.data.valuehome
           })
+          .get().then((res) => {
+            infoo = res.data[0]
+            infoo.info.push(this.clouddata)
+            console.log(infoo)
+          })
+          .then(() => {
+            db.collection('homelist').doc(infoo._id).update({
+              data: {
+                info: infoo.info
+              }
+            }).then((res) => {
+              console.log(res)
+            })
+          })
+  
+        // 提交以后更新，编辑界面变白
+        this.setData({
+          itemSort: "类别",
+          valuehome: "选择空间",
+          date1: '',
+          show1: false,
+          date2: '',
+          show2: false,
+          date3: '',
+          show3: false,
+          date4: '',
+          show4: false,
+          minDate: new Date(2019, 0, 1).getTime(),
+          maxDate: new Date(2050, 0, 31).getTime(),
+          fileList: [],
+          name: '',
+          remark: '',
+          count: '',
+          itemName: '',
+          number: 0,
         })
-
-      this.setData({
-        itemSort: "类别",
-        valuehome: "选择空间",
-        date1: '',
-        show1: false,
-        date2: '',
-        show2: false,
-        date3: '',
-        show3: false,
-        date4: '',
-        show4: false,
-        minDate: new Date(2019, 0, 1).getTime(),
-        maxDate: new Date(2050, 0, 31).getTime(),
-        fileList: [],
-        name: '',
-        remark: '',
-        count: '',
-        itemName: '',
-        number: 0,
+        wx.showToast({
+          title: '提交啦!!',
+        })
+  
+  
+      }).catch(error => {
+        // handle error
+        console.log('出错')
+        console.log(error)
+        console.log(cloudPath)
+        console.log(filePath)
       })
-      wx.showToast({
-        title: '提交啦!!',
-      })
-
-
-    }).catch(error => {
-      // handle error
-      console.log('出错')
-      console.log(error)
-      console.log(cloudPath)
-      console.log(filePath)
-    })
-
-
+    }
+   
   },
 
   onTap1() {
