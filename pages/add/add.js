@@ -348,13 +348,15 @@ Page({
       console.log('输出更新前的');
       console.log(allList);
       allList[index].count=this.data.number
-      allList[index].data1=this.data.data1
-      allList[index].data2=this.data.data2
+      allList[index].date1=this.data.date1
+      allList[index].date2=this.data.date2
       allList[index].name=this.data.itemName
       allList[index].remark=this.data.remark
       allList[index].sort=_sort
       allList[index].photourl=this.data.photoURL
       allList[index].token=app.globalData.cloudID
+      console.log('输出更新后的');
+      console.log(allList);
       
 
       db.collection('homelist').doc(this.data.listId).update({
@@ -382,8 +384,8 @@ Page({
         // 提交的数据
         this.clouddata = {
           count: this.data.number,
-          data1: this.data.data1,
-          data2: this.data.data2,
+          date1: this.data.date1,
+          date2: this.data.date2,
           name: this.data.itemName,
           remark: this.data.remark,
           sort: _sort,
@@ -418,30 +420,7 @@ Page({
             })
           })
   
-        // 提交以后更新，编辑界面变白
-        this.setData({
-          itemSort: "类别",
-          valuehome: "选择空间",
-          date1: '',
-          show1: false,
-          date2: '',
-          show2: false,
-          date3: '',
-          show3: false,
-          date4: '',
-          show4: false,
-          minDate: new Date(2019, 0, 1).getTime(),
-          maxDate: new Date(2050, 0, 31).getTime(),
-          fileList: [],
-          name: '',
-          remark: '',
-          count: '',
-          itemName: '',
-          number: 0,
-        })
-        wx.showToast({
-          title: '提交啦!!',
-        })
+        
   
   
       }).catch(error => {
@@ -452,6 +431,30 @@ Page({
         console.log(filePath)
       })
     }
+    // 提交以后更新，编辑界面变白
+    this.setData({
+      itemSort: "类别",
+      valuehome: "选择空间",
+      date1: '',
+      show1: false,
+      date2: '',
+      show2: false,
+      date3: '',
+      show3: false,
+      date4: '',
+      show4: false,
+      minDate: new Date(2019, 0, 1).getTime(),
+      maxDate: new Date(2050, 0, 31).getTime(),
+      fileList: [],
+      name: '',
+      remark: '',
+      count: '',
+      itemName: '',
+      number: 0,
+    })
+    wx.showToast({
+      title: '提交啦!!',
+    })
    
   },
 
