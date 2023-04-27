@@ -52,7 +52,8 @@ Page({
     allItem:[],//用于存整个list的所有，但每次只更新对呀index的物品
     itemIndex:0,//用于存储下标
     photoURL:'',
-    listId:''//用于更新列表
+    listId:'',//用于更新列表,
+    addList:''//用于记录添加的清单名称
 
   },
 
@@ -86,15 +87,17 @@ Page({
   onShow: function () {
     this.getHomeList()
   },
+  // 查询清单信息
   getHomeList() {
     db.collection('homelist').where(db.command.or([{
         owner: {
-          id: app.globalData.cloudID,
           username: app.globalData.nickName
         }
       },
       {
-        guest: db.command.all([app.globalData.cloudID])
+        guest: {
+          name:app.globalData.nickName
+      }
       }
     ])).get({
       success: (res) => {
@@ -335,6 +338,7 @@ Page({
   },
   onSelecthome(res) {
     this.setData({
+      addList:res.detail.name,
       valuehome: res.detail.name
     })
   },
@@ -403,10 +407,12 @@ Page({
         var infoo = []
         // 放到对应清单
         db.collection('homelist').where({
-            homeid: this.data.valuehome
+            homeid: this.data.addList
           })
           .get().then((res) => {
             infoo = res.data[0]
+            console.log('这里是info');
+            console.log(res);
             infoo.info.push(this.clouddata)
             console.log(infoo)
           })
@@ -419,9 +425,6 @@ Page({
               console.log(res)
             })
           })
-  
-        
-  
   
       }).catch(error => {
         // handle error

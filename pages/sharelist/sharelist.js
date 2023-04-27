@@ -42,9 +42,8 @@ Page({
           // 清单名称
           var listName = res.data[0].homeid
 
-          let temp = res.data[0].info.info
           let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
-          let tem = res.data[0].info.info.map(element => {
+          let tem = res.data[0].info.map(element => {
             let past = parseInt(element.date2.split('/')[2])
             element.counts = past - now
             return element

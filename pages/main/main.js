@@ -73,10 +73,24 @@ Page({
             showAllItem.push(eachItem.info[idx])
           }
         }
+        var isGuestFlag = 0 //设置一个flag，遍历所有清单的guest
+        var eachItemGuest = eachItem.guest
+
         // 判断是否为该清单的加入者
+        for(var idxx in eachItemGuest){
+          if(eachItemGuest[idxx].name===nickName){
+              isGuestFlag=1
+          }
+        }
+        if(isGuestFlag=1){
+          for(var idx in eachItem.info){
+            showAllItem.push(eachItem.info[idx])
+          }
+        }
         
 
       }
+      console.log('这是要展示的');
       console.log(showAllItem);
       
     })
