@@ -38,8 +38,9 @@ Page({
       joinshow: true
     })
   },
+
+  // 加入分组
   submit() {
-    // 如果邀请加入
     if (this.data.joinshow) {
       console.log(app.globalData.cloudID)
       db.collection('homelist').where({
@@ -47,18 +48,20 @@ Page({
       }).update({
         data: {
           guest: db.command.push(
-            app.globalData.cloudID
+          {
+            aut:'读写',
+            name:app.globalData.nickName
+          }
           ),
         },
         success: function (res) {
-          console.log(res)
+          console.log("成功加入分组")
         }
       })
     }
 
-    //如果创建
+    //创建分组
     if (this.data.createshow) {
-      console.log(this.data.homevalue),
         db.collection('homelist')
         .add({
           // data 字段表示需新增的 JSON 数据
@@ -77,15 +80,17 @@ Page({
         })
     }
   },
+  // 获取全部清单
   getHomeList() {
     db.collection('homelist').where(db.command.or([{
         owner: {
-          id: app.globalData.cloudID,
           username: app.globalData.nickName
         }
       },
       {
-        guest: db.command.all([app.globalData.cloudID])
+        guest: {
+            name:app.globalData.nickName
+        }
       }
     ])).get().then(
       res => {
@@ -101,7 +106,6 @@ Page({
   },
   //获取初始OpenId和基本信息
   onLoad: function (options) {
-    console.log(app.globalData.cloudID)
     this.getHomeList()
   },
 

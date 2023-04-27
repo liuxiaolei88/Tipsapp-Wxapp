@@ -19,7 +19,7 @@
         bind:close="onClose" 
         confirm-button-open-type="getUserInfo"
         bind:getuserinfo="submit">
-        <van-field wx:if="{{joinshow}}" model:value="{{ joinvalue }}" required clearable label="创建者id"  placeholder="请输入要加入的创建者id"/>
+        <van-field wx:if="{{joinshow}}" model:value="{{ joinvalue }}" required clearable label="创建者"  placeholder="请输入要加入的创建者id"/>
         <van-field wx:if="{{joinshow}}" model:value="{{ joinvalue1 }}" required clearable label="清单名称"  placeholder="请输入要加入的清单名称"/>
         <van-field wx:if="{{createshow}}" model:value="{{ homevalue }}" required clearable label="创建"  placeholder="请输入清单名称"/>
     </van-dialog>

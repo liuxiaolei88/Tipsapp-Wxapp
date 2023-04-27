@@ -40,6 +40,10 @@ Page({
         app.globalData.avatarUrl=e.userInfo.avatarUrl
         app.globalData.nickName=e.userInfo.nickName
         // console.log(app.globalData.userInfo)
+        wx.setStorage({
+          key:"nickName",
+          data:e.userInfo.nickName
+         }),
         this.setData({
           userInfo: e.userInfo,
           hasUserInfo: true

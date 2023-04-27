@@ -6,8 +6,8 @@ const app = getApp()
 const db = wx.cloud.database({
   env: 'tipsapp-4g4e3qbv29f41b1c'
 });
-Page({
 
+Page({
   data: {
     userOpenId: "",
     intemInfoArray: [],
@@ -46,12 +46,44 @@ Page({
       duration: 10 * 1000,
     });
   },
+  
   //获取初始OpenId和基本信息
   onLoad: function (options) {
 
     var that = this
-    //var intemInfoArray = that.data.intemInfoArray
+    var nickName = ''//用于记录缓存里的用户名称
+
+    wx.getStorage({
+      key: 'nickName',
+      success: function(res) {
+        nickName = res.data
+      }
+     }),
+
+    db.collection('homelist')
+    .where({}).get().then(res=>{
+      var allListItem = res.data
+      console.log(allListItem);
+      var showAllItem = []
+      for(var index in allListItem){
+        var eachItem = allListItem[index]
+        // 判断是否为该清单的拥有者
+        if(eachItem.owner.username===nickName){
+          for(var idx in eachItem.info){
+            showAllItem.push(eachItem.info[idx])
+          }
+        }
+        // 判断是否为该清单的加入者
+        
+
+      }
+      console.log(showAllItem);
+      
+    })
+  
     db.collection('userToken')
+    
+
       .where({
         token: db.command.in([app.globalData.cloudID]),
       })
@@ -89,21 +121,21 @@ Page({
     // })
     // console.log(userOpenId)
     db.collection('userToken')
-    .where({
-      token: db.command.in([app.globalData.cloudID]),
-    })
-    .get()
-    .then(res => {
-      let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
-      let tem = res.data.map(element => {
-        let past = parseInt(element.date2.split('/')[2])
-        element.count = past - now
-        return element
-      });
-      this.setData({
-        intemInfoArray: tem,
+      .where({
+        token: db.command.in([app.globalData.cloudID]),
       })
-    })
+      .get()
+      .then(res => {
+        let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
+        let tem = res.data.map(element => {
+          let past = parseInt(element.date2.split('/')[2])
+          element.count = past - now
+          return element
+        });
+        this.setData({
+          intemInfoArray: tem,
+        })
+      })
   },
 
   //分类查询
@@ -141,7 +173,7 @@ Page({
       })
 
   },
-  onShow(){
+  onShow() {
     db.collection('userToken')
       .where({
         token: db.command.in([app.globalData.cloudID]),
@@ -157,7 +189,7 @@ Page({
         this.setData({
           intemInfoArray: tem,
         })
-        console.log(this.data.intemInfoArray)
+        // console.log(this.data.intemInfoArray)
       })
   },
 })
