@@ -405,6 +405,7 @@ Page({
           error: res => console.log(res)
         })
         var infoo = []
+
         // 放到对应清单
         db.collection('homelist').where({
             homeid: this.data.addList
@@ -412,8 +413,8 @@ Page({
           .get().then((res) => {
             infoo = res.data[0]
             console.log('这里是info');
-            console.log(res);
-            infoo.info.push(this.clouddata)
+            console.log(infoo);
+            infoo.info.info.push(this.clouddata)
             console.log(infoo)
           })
           .then(() => {
@@ -435,26 +436,26 @@ Page({
       })
     }
     // 提交以后更新，编辑界面变白
-    this.setData({
-      itemSort: "类别",
-      valuehome: "选择空间",
-      date1: '',
-      show1: false,
-      date2: '',
-      show2: false,
-      date3: '',
-      show3: false,
-      date4: '',
-      show4: false,
-      minDate: new Date(2019, 0, 1).getTime(),
-      maxDate: new Date(2050, 0, 31).getTime(),
-      fileList: [],
-      name: '',
-      remark: '',
-      count: '',
-      itemName: '',
-      number: 0,
-    })
+    // this.setData({
+    //   itemSort: "类别",
+    //   valuehome: "选择空间",
+    //   date1: '',
+    //   show1: false,
+    //   date2: '',
+    //   show2: false,
+    //   date3: '',
+    //   show3: false,
+    //   date4: '',
+    //   show4: false,
+    //   minDate: new Date(2019, 0, 1).getTime(),
+    //   maxDate: new Date(2050, 0, 31).getTime(),
+    //   fileList: [],
+    //   name: '',
+    //   remark: '',
+    //   count: '',
+    //   itemName: '',
+    //   number: 0,
+    // })
     wx.showToast({
       title: '提交啦!!',
     })

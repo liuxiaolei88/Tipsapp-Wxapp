@@ -72,7 +72,7 @@ Page({
               username: app.globalData.nickName,
             },
             guest: [],
-            info:[],
+            info:{info:[]},
           }
         })
         .then(() => {
