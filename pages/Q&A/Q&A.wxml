@@ -1,4 +1,17 @@
 <!--pages/Q&A/Q&A.wxml-->
 
-<image src="/icon/tips.png" mode="aspectFill" style="width: 750rpx; height: 850rpx;margin-top: 30rpx;">
-</image>
+<view wx:for="{{showDateInfo}}" wx:for-index="idx">
+  <van-card
+  num=""
+  price=""
+  title= "{{showDateInfo[idx]['title']}}"
+  desc="{{showDateInfo[idx]['dec']}}"
+  thumb="{{showDateInfo[idx]['pic']}}"
+/>
+</view>
+
+
+
+
+
+

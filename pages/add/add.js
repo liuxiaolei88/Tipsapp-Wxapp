@@ -49,11 +49,11 @@ Page({
     makeUpItem: ['口红', '粉底液', '眼影'],
     medicinalItem: ['风油精', '碘酒', '酒精', '三金 桂林西瓜霜喷剂 3.5g'],
     flag: 0, //用于判断是否是更新还是添加
-    allItem:[],//用于存整个list的所有，但每次只更新对呀index的物品
-    itemIndex:0,//用于存储下标
-    photoURL:'',
-    listId:'',//用于更新列表,
-    addList:''//用于记录添加的清单名称
+    allItem: [], //用于存整个list的所有，但每次只更新对呀index的物品
+    itemIndex: 0, //用于存储下标
+    photoURL: '',
+    listId: '', //用于更新列表,
+    addList: '' //用于记录添加的清单名称
 
   },
 
@@ -78,10 +78,10 @@ Page({
       remark: params.item.remark, //备注
       itemName: params.item.name, //物品名称
       number: params.item.count, //数量
-      itemIndex:params.itemIndex, //下标
-      allItem:params.allListItem,//整个清单
-      photoURL:params.item.photourl,//图片URL，不是key-value形式
-      listId:params.listId//更新清单的id
+      itemIndex: params.itemIndex, //下标
+      allItem: params.allListItem, //整个清单
+      photoURL: params.item.photourl, //图片URL，不是key-value形式
+      listId: params.listId //更新清单的id
     })
   },
   onShow: function () {
@@ -96,8 +96,8 @@ Page({
       },
       {
         guest: {
-          name:app.globalData.nickName
-      }
+          name: app.globalData.nickName
+        }
       }
     ])).get({
       success: (res) => {
@@ -276,18 +276,16 @@ Page({
 
   },
 
-  formSubmit: function (data) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  // formSubmit: function (data) {
+  //   console.log('form发生了submit事件，携带数据为：', e.detail.value)
 
-  },
+  // },
 
   //获取物品名称信息
-  onChangeName(event) {
-    // event.detail 为当前输入的值
-    console.log(event.detail);
-
-
-  },
+  // onChangeName(event) {
+  //   // event.detail 为当前输入的值
+  //   console.log(event.detail);
+  // },
   //获取物品备注信息
 
   onChangeRemark(event) {
@@ -329,16 +327,13 @@ Page({
   },
   onSelect(res) {
     _sort = res.detail.name
-    console.log(typeof (res.detail.name))
     this.setData({
       itemSort: res.detail.name
     })
-
-
   },
   onSelecthome(res) {
     this.setData({
-      addList:res.detail.name,
+      addList: res.detail.name,
       valuehome: res.detail.name
     })
   },
@@ -347,63 +342,69 @@ Page({
   onClick() {
     // flag=1是更新列表
     if (this.data.flag === 1) {
+      var itemCount = this.data.number
+      var startDate = this.data.date1
+      var endDate = this.data.date2
+      var itemName  = this.data.itemName
+      var itemRemark = this.data.remark
+      var itemSort = this.data.itemSort
+
       var allList = this.data.allItem
       var index = this.data.itemIndex
-      console.log('输出更新前的');
-      console.log(allList);
-      allList[index].count=this.data.number
-      allList[index].date1=this.data.date1
-      allList[index].date2=this.data.date2
-      allList[index].name=this.data.itemName
-      allList[index].remark=this.data.remark
-      allList[index].sort=_sort
-      allList[index].photourl=this.data.photoURL
-      allList[index].token=app.globalData.cloudID
-      console.log('输出更新后的');
-      console.log(allList);
+      console.log('更新数据');
+      console.log(itemCount);
+      console.log(itemName);
       
+      allList[index].count = itemCount
+      allList[index].date1 = startDate
+      allList[index].date2 = endDate
+      allList[index].name = itemName
+      allList[index].remark = itemRemark
+      allList[index].sort = itemSort
+      allList[index].photourl = this.data.photoURL
+      allList[index].token = app.globalData.cloudID
+
+
 
       db.collection('homelist').doc(this.data.listId).update({
-         data: {
-           info: db.command.set({
-             info: allList
-           })
-       },
-         success: function (res) {
-           console.log('更新成功')
-         }
-       })
+        data: {
+          info: db.command.set({
+            info: allList
+          })
+        },
+        success: function (res) {
+          console.log('更新成功')
+          console.log(allList);
+        }
+      })
     }
     // flag=0是直接加入列表，默认=0
     else {
       var that = this
+      var itenCount = this.data.number
+      var startDate = this.data.date1
+      var endDate = this.data.date2
+      var itemName  = this.data.itemName
+      var itemRemark = this.data.remark
+      var itemSort = this.data.itemSort
       wx.cloud.uploadFile({
         cloudPath: "img/" + new Date().getTime() + '.png',
         filePath: this.data.fileList[0].url, // 小程序临时文件路径
       }).then(res => {
-        console.log('触发回掉')
-        console.log(res)
-        // get resource ID
-  
         // 提交的数据
         this.clouddata = {
-          count: this.data.number,
-          date1: this.data.date1,
-          date2: this.data.date2,
-          name: this.data.itemName,
-          remark: this.data.remark,
-          sort: _sort,
+          count: itenCount,
+          date1: startDate,
+          date2: endDate,
+          name: itemName,
+          remark: itemRemark,
+          sort: itemSort,
           photourl: res.fileID,
           token: app.globalData.cloudID
         }
         // 这里需要判断是更新还是添加
         // flag=1的时候是更新
-       
-        todos.add({
-          data: this.clouddata,
-          // success: () => console.log("成功了"),
-          error: res => console.log(res)
-        })
+
         var infoo = []
 
         // 放到对应清单
@@ -426,7 +427,7 @@ Page({
               console.log(res)
             })
           })
-  
+
       }).catch(error => {
         // handle error
         console.log('出错')
@@ -435,31 +436,34 @@ Page({
         console.log(filePath)
       })
     }
-    // 提交以后更新，编辑界面变白
-    // this.setData({
-    //   itemSort: "类别",
-    //   valuehome: "选择空间",
-    //   date1: '',
-    //   show1: false,
-    //   date2: '',
-    //   show2: false,
-    //   date3: '',
-    //   show3: false,
-    //   date4: '',
-    //   show4: false,
-    //   minDate: new Date(2019, 0, 1).getTime(),
-    //   maxDate: new Date(2050, 0, 31).getTime(),
-    //   fileList: [],
-    //   name: '',
-    //   remark: '',
-    //   count: '',
-    //   itemName: '',
-    //   number: 0,
-    // })
+
     wx.showToast({
       title: '提交啦!!',
     })
-   
+    setTimeout(()=>{
+      this.setData({
+        itemSort: "类别",
+        valuehome: "选择空间",
+        date1: '',
+        show1: false,
+        date2: '',
+        show2: false,
+        date3: '',
+        show3: false,
+        date4: '',
+        show4: false,
+        minDate: new Date(2019, 0, 1).getTime(),
+        maxDate: new Date(2050, 0, 31).getTime(),
+        fileList: [],
+        name: '',
+        remark: '',
+        count: '',
+        itemName: '',
+        number: 0,
+      })
+    },2000)
+    
+
   },
 
   onTap1() {

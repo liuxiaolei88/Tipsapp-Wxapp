@@ -1,3 +1,18 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-sticky": "../../dist/sticky/index",
+    "van-tab": "../../dist/tab/index",
+    "van-tabs": "../../dist/tabs/index",
+    "van-search": "../../dist/search/index",
+    "van-card": "../../dist/card/index",
+    "van-divider": "../../dist/divider/index",
+    "van-count-down":"../../dist/count-down/index",
+    "van-swipe-cell":"../../dist/swipe-cell/index",
+    "van-dialog": "../../dist/dialog/index",
+    "van-notify": "../../dist/notify/index",
+    "van-sidebar": "../../dist/sidebar/index",
+    "van-sidebar-item": "../../dist/sidebar-item/index",
+    "van-collapse": "../../dist/collapse/index",
+    "van-collapse-item": "../../dist/collapse-item/index"
+  }
 }
