@@ -358,6 +358,20 @@ Page({
       valuehome: res.detail.name
     })
   },
+  getDiffDay(date_1, date_2) {
+    // 计算两个日期之间的差值
+    let totalDays,diffDate
+    let myDate_1 = Date.parse(date_1)
+    let myDate_2 = Date.parse(date_2)
+    // 将两个日期都转换为毫秒格式，然后做差
+    diffDate = Math.abs(myDate_1 - myDate_2) // 取相差毫秒数的绝对值
+   
+    totalDays = Math.floor(diffDate / (1000 * 3600 * 24)) // 向下取整
+    // console.log(totalDays)    
+   
+    return totalDays    // 相差的天数
+  },
+
 
   // 提交
   onClick() {
@@ -405,6 +419,16 @@ Page({
       var itemCount = this.data.number
       var startDate = this.data.date1
       var endDate = this.data.date2
+      // 增加一个计算生产日期到过期日期的计算逻辑
+      let totalDays,diffDate
+      let myDate_1 = Date.parse(startDate)
+      let myDate_2 = Date.parse(endDate)
+      // 将两个日期都转换为毫秒格式，然后做差
+      diffDate = Math.abs(myDate_1 - myDate_2) // 取相差毫秒数的绝对值
+      totalDays = Math.floor(diffDate / (1000 * 3600 * 24)) // 向下取整
+      console.log(totalDays);
+
+
       var itemName  = this.data.itemName
       var itemRemark = this.data.remark
       var itemSort = this.data.itemSort
@@ -422,7 +446,9 @@ Page({
           itemRemark:itemRemark,
           itemSort:itemSort,
           photoUrlList:photoUrlList,
-          listId:listId
+          listId:listId,
+          Intervals:totalDays
+
         },
         success: function(res) {
           // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
@@ -635,6 +661,6 @@ Page({
       cloudPath: fileName,
       filePath: chooseResult.url
     });
-  }
-
+  },
+  
 });
