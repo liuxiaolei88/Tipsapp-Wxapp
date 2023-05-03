@@ -69,10 +69,12 @@ Page({
         var eachItem = allListItem[index]
         // 判断是否为该清单的拥有者
         if(eachItem.owner.username===nickName){
-          for(var idx in eachItem.info){
-            showAllItem.push(eachItem.info[idx])
+          for(var idx in eachItem.info.info){
+            showAllItem.push(eachItem.info.info[idx])
           }
+          continue
         }
+        
         var isGuestFlag = 0 //设置一个flag，遍历所有清单的guest
         var eachItemGuest = eachItem.guest
 
@@ -83,8 +85,8 @@ Page({
           }
         }
         if(isGuestFlag=1){
-          for(var idx in eachItem.info){
-            showAllItem.push(eachItem.info[idx])
+          for(var idx in eachItem.info.info){
+            showAllItem.push(eachItem.info.info[idx])
           }
         }
         
@@ -92,27 +94,41 @@ Page({
       }
       console.log('这是要展示的');
       console.log(showAllItem);
-      
-    })
-  
-    db.collection('userToken')
-    
-
-      .where({
-        token: db.command.in([app.globalData.cloudID]),
-      })
-      .get()
-      .then(res => {
-        let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
-        let tem = res.data.map(element => {
+      let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
+      let tem =showAllItem.map(element => {
           let past = parseInt(element.date2.split('/')[2])
           element.count = past - now
           return element
         });
+        console.log('tem');
+        console.log(tem);
         this.setData({
           intemInfoArray: tem,
         })
-      })
+      
+      
+    })
+  
+    // db.collection('userToken')
+    
+
+    //   .where({
+    //     token: db.command.in([app.globalData.cloudID]),
+    //   })
+    //   .get()
+    //   .then(res => {
+    //     let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
+    //     let tem = res.data.map(element => {
+    //       let past = parseInt(element.date2.split('/')[2])
+    //       element.count = past - now
+    //       return element
+    //     });
+    //     console.log('tem');
+    //     console.log(tem);
+    //     this.setData({
+    //       intemInfoArray: tem,
+    //     })
+    //   })
 
 
 
@@ -187,23 +203,23 @@ Page({
       })
 
   },
-  onShow() {
-    db.collection('userToken')
-      .where({
-        token: db.command.in([app.globalData.cloudID]),
-      })
-      .get()
-      .then(res => {
-        let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
-        let tem = res.data.map(element => {
-          let past = parseInt(element.date2.split('/')[2])
-          element.counts = past - now
-          return element
-        });
-        this.setData({
-          intemInfoArray: tem,
-        })
-        // console.log(this.data.intemInfoArray)
-      })
-  },
+  // onShow() {
+  //   db.collection('userToken')
+  //     .where({
+  //       token: db.command.in([app.globalData.cloudID]),
+  //     })
+  //     .get()
+  //     .then(res => {
+  //       let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
+  //       let tem = res.data.map(element => {
+  //         let past = parseInt(element.date2.split('/')[2])
+  //         element.counts = past - now
+  //         return element
+  //       });
+  //       this.setData({
+  //         intemInfoArray: tem,
+  //       })
+  //       // console.log(this.data.intemInfoArray)
+  //     })
+  // },
 })

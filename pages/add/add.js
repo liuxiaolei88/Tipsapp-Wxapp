@@ -53,7 +53,8 @@ Page({
     itemIndex: 0, //用于存储下标
     photoURL: '',
     listId: '', //用于更新列表,
-    addList: '' //用于记录添加的清单名称
+    addList: '' ,//用于记录添加的清单名称
+    photoUrlList:[]//用来存储上传以后变成永久链接的图片url
 
   },
 
@@ -81,12 +82,15 @@ Page({
       itemIndex: params.itemIndex, //下标
       allItem: params.allListItem, //整个清单
       photoURL: params.item.photourl, //图片URL，不是key-value形式
-      listId: params.listId //更新清单的id
+      listId: params.listId ,//更新清单的id
+      photoUrlList:[]//用来存储上传以后变成永久链接的图片url
     })
   },
+
   onShow: function () {
     this.getHomeList()
   },
+
   // 查询清单信息
   getHomeList() {
     db.collection('homelist').where(db.command.or([{
@@ -113,18 +117,32 @@ Page({
       }
     })
   },
+
+  // 上传照片调用
   afterRead: function (event) {
-    const {
-      file
-    } = event.detail;
-    const {
-      fileList = []
-    } = this.data;
+    const {file} = event.detail;
+    const {fileList = []} = this.data;
+    // 因为每次添加图片都会触发一次这个函数，所以初始化数据的时候需要初始化data的数据，不然会重置
+    var photoUrlList = this.data.photoUrlList
     fileList.push({
       url: file.path
     });
     this.setData({
       fileList
+    })
+
+    //转换成永久链接
+    wx.cloud.uploadFile({
+      cloudPath: "img/" + new Date().getTime() + '.png',
+      filePath: file.path, // 小程序临时文件路径
+    }).then(res =>{
+        this.data.photoUrlList.push({
+        url:res.fileID
+        })
+        console.log(res.fileID);
+    })
+    this.setData({
+      photoUrlList
     })
 
     // 照片1:对第一张照片进行主体识别
@@ -276,17 +294,20 @@ Page({
 
   },
 
-  // formSubmit: function (data) {
-  //   console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  formSubmit: function (data) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
 
-  // },
+  },
 
-  //获取物品名称信息
-  // onChangeName(event) {
-  //   // event.detail 为当前输入的值
-  //   console.log(event.detail);
-  // },
-  //获取物品备注信息
+  // 获取物品名称信息
+ 
+  
+  onChangeName(event){
+    console.log(event.detail);
+    this.setData({
+      itemName: event.detail
+    })
+  },
 
   onChangeRemark(event) {
     // event.detail 为当前输入的值
@@ -381,60 +402,84 @@ Page({
     // flag=0是直接加入列表，默认=0
     else {
       var that = this
-      var itenCount = this.data.number
+      var itemCount = this.data.number
       var startDate = this.data.date1
       var endDate = this.data.date2
       var itemName  = this.data.itemName
       var itemRemark = this.data.remark
       var itemSort = this.data.itemSort
-      wx.cloud.uploadFile({
-        cloudPath: "img/" + new Date().getTime() + '.png',
-        filePath: this.data.fileList[0].url, // 小程序临时文件路径
-      }).then(res => {
-        // 提交的数据
-        this.clouddata = {
-          count: itenCount,
-          date1: startDate,
-          date2: endDate,
-          name: itemName,
-          remark: itemRemark,
-          sort: itemSort,
-          photourl: res.fileID,
-          token: app.globalData.cloudID
+      var listId = this.data.valuehome
+      var photoUrlList = this.data.photoUrlList
+      
+
+      db.collection('itemList').add({
+        // data 字段表示需新增的 JSON 数据
+        data: {
+          itemCount:itemCount,
+          startDate:startDate,
+          endDate:endDate,
+          itemName:itemName,
+          itemRemark:itemRemark,
+          itemSort:itemSort,
+          photoUrlList:photoUrlList,
+          listId:listId
+        },
+        success: function(res) {
+          // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+          console.log("上传itemList成功");
+          console.log(res)
         }
-        // 这里需要判断是更新还是添加
-        // flag=1的时候是更新
-
-        var infoo = []
-
-        // 放到对应清单
-        db.collection('homelist').where({
-            homeid: this.data.addList
-          })
-          .get().then((res) => {
-            infoo = res.data[0]
-            console.log('这里是info');
-            console.log(infoo);
-            infoo.info.info.push(this.clouddata)
-            console.log(infoo)
-          })
-          .then(() => {
-            db.collection('homelist').doc(infoo._id).update({
-              data: {
-                info: infoo.info
-              }
-            }).then((res) => {
-              console.log(res)
-            })
-          })
-
-      }).catch(error => {
-        // handle error
-        console.log('出错')
-        console.log(error)
-        console.log(cloudPath)
-        console.log(filePath)
       })
+
+      // wx.cloud.uploadFile({
+      //   cloudPath: "img/" + new Date().getTime() + '.png',
+      //   filePath: this.data.fileList[0].url, // 小程序临时文件路径
+      // }).then(res => {
+      //   // 提交的数据
+      //   this.clouddata = {
+      //     count: itenCount,
+      //     date1: startDate,
+      //     date2: endDate,
+      //     name: itemName,
+      //     remark: itemRemark,
+      //     sort: itemSort,
+      //     photourl: res.fileID,
+      //     token: app.globalData.cloudID
+      //   }
+      //   // 这里需要判断是更新还是添加
+      //   // flag=1的时候是更新
+
+      //   var infoo = []
+
+        
+
+      //   // 放到对应清单
+      //   db.collection('homelist').where({
+      //       homeid: this.data.addList
+      //     })
+      //     .get().then((res) => {
+      //       infoo = res.data[0]
+      //       console.log('这里是info');
+      //       console.log(infoo);
+      //       infoo.info.info.push(this.clouddata)
+      //       console.log(infoo)
+      //     })
+      //     .then(() => {
+      //       db.collection('homelist').doc(infoo._id).update({
+      //         data: {
+      //           info: infoo.info
+      //         }
+      //       }).then((res) => {
+      //         console.log(res)
+      //       })
+      //     })
+      // }).catch(error => {
+      //   // handle error
+      //   console.log('出错')
+      //   console.log(error)
+      //   console.log(cloudPath)
+      //   console.log(filePath)
+      // })
     }
 
     wx.showToast({
@@ -462,8 +507,7 @@ Page({
         number: 0,
       })
     },2000)
-    
-
+  
   },
 
   onTap1() {
