@@ -12,11 +12,13 @@ Page({
     userOpenId: "",
     intemInfoArray: [],
     itemCloudItem: [],
+    nickName:'',
     // *1000代表有多少秒
     time: 1 * 1000,
     activeKey: 0,
   },
 
+  // 搜索框
   onSearch: function (options) {
     var that = this
     var search_token = options.detail
@@ -56,6 +58,9 @@ Page({
     wx.getStorage({
       key: 'nickName',
       success: res => {
+        this.setData({
+          nickName:res.data
+        })
        db.collection('itemList').where({
             nickName:res.data
           }).get()
@@ -252,33 +257,34 @@ Page({
   onChange(event) {
     var that = this
     var sortName = event.detail.title
-    var userOpenId = this.data.userOpenId
-    wx.getStorage({
-      key: 'userOpenId',
-      success: function (res) {
-        that.setData({ //拿到缓存中的数据并渲染到页面
-          userOpenId: res.data
-        })
-      }
-    })
-    console.log(sortName) //名字
-    console.log(userOpenId)
+    // var userOpenId = this.data.userOpenId
+    // wx.getStorage({
+    //   key: 'userOpenId',
+    //   success: function (res) {
+    //     that.setData({ //拿到缓存中的数据并渲染到页面
+    //       userOpenId: res.data
+    //     })
+    //   }
+    // })
+    // wx.getStorage({
+    //   key: 'nickName',
+    //   success: res => {
+    //    this.setData({
+    //      nickName:res.data
+    //    })
+    //   }
+    // })
 
-    db.collection('userToken')
+    db.collection('itemList')
       .where({
-        token: db.command.in([app.globalData.cloudID]),
-        sort: db.command.in([sortName]),
+        nickName:this.data.nickName,
+        itemSort:sortName,
       })
       .get()
       .then(res => {
-        let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
-        let tem = res.data.map(element => {
-          let past = parseInt(element.date2.split('/')[2])
-          element.counts = past - now
-          return element
-        });
+        console.log(res);
         this.setData({
-          intemInfoArray: tem,
+          intemInfoArray: res.data,
         })
       })
 
