@@ -5,32 +5,25 @@
   <van-tab title="化妆品护肤品"></van-tab>
 </van-tabs>
 <view style="margin: 10rpx;"></view>
+
 <block class="infoCard" wx:for="{{intemInfoArray}}" wx:for-index="idx" wx:for-item="itemName">
-<!-- <image img></image> -->
-  <van-card num="{{intemInfoArray[idx].count}}" desc="{{intemInfoArray[idx].remark}}"
-    title="{{intemInfoArray[idx].name}}" thumb="{{intemInfoArray[idx].photourl}}" tag="{{intemInfoArray[idx].date2}}"
+  <van-card num="{{intemInfoArray[idx].itemCount}}" desc="{{intemInfoArray[idx].itemRemark}}"
+    title="{{intemInfoArray[idx].itemName}}" thumb="{{intemInfoArray[idx].photoUrlList[0].url}}" tag="{{intemInfoArray[idx].endDate}}"
     title_class="card">
     <view slot="footer" style="margin: 70rpx;"><text></text></view>
+    <view slot="footer">
+      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="editMyItem" data-idx="{{idx}}">编辑</van-button>
+      <van-button plain hairline round type="info" size="mini" color="#B0C4DE" bindtap="deleteMyItem" data-idx="{{idx}}">删除</van-button>
+
+      <view slot="footer" style="margin: 70rpx;"><text></text></view>
+    </view>
     <view slot="footer" style="display: flex;">
       <text style="font-size: 28rpx;font-weight: 300;">过期时间还有： </text>
-      <view>{{intemInfoArray[idx].counts}}天 </view>
+      <view>{{intemInfoArray[idx].Intervals}}天 </view>
     </view>
   </van-card>
 </block>
-  <!-- <view class="content">
-<view class="content1">
-<text class="infoName">{{intemInfoArray[idx].name}} </text>
-<text>数量：{{intemInfoArray[idx].count}}</text>
-<text>生产日期：{{intemInfoArray[idx].date1}}</text>
-<text>剩余天数：{{intemInfoArray[idx].date2}}</text>
-<text>备注：{{intemInfoArray[idx].remark}}</text>
-<text></text>
-</view>
-<view class="content2">
-<image src="{{intemInfoArray[idx].photourl}}" style="width: 240rpx; height: 240rpx"></image>
-</view>
-
-</view> -->
+ 
 <van-notify id="van-notify" />
 <!-- <van-notify id="van-notify" />
 

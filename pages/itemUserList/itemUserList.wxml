@@ -1,13 +1,28 @@
-<!--pages/itemUserList.wxml-->
-
-
-
+<!-- 清单拥有者 -->
 <van-cell-group title="清单拥有者:">
-  <van-cell  icon="user-o" title="{{listOwn}}" value="读写" />
+  <van-cell icon="user-o" title="{{listOwn}}" value="{{ownerAuth}}" />
 </van-cell-group>
-<van-cell-group title="清单加入者：">
-  <view wx:for="{{listAdd}}">
-    <van-cell icon="user-o" title="{{item['name']}}" value="{{item['aut']}}" />
-  </view>
 
+<!-- 清单加入者 -->
+<van-cell-group title="清单加入者：">
+  <view wx:for="{{listAdd}}" wx:for-item="item" wx:for-index="idx">
+    <van-cell icon="user-o" title="{{item['name']}}" value="{{item['aut']}}" bindtap="changePicker" data-idx="{{idx}}" />
+    <van-action-sheet show="{{ ownerPickerIsShow }}" actions="{{ actions }}" bind:close="onClose" bind:select="onSelect" />
+  </view>
 </van-cell-group>
+
+<van-popup
+  show="{{ showRefuse }}"
+  round
+  position="bottom"
+  custom-style="height: 20%"
+  bind:close="onClosePopup"
+
+> 
+<view   style="display:flex; justify-content:center; align-items:center; flex-direction: column;" > 
+<view style="margin-top: 60rpx; font-size: 30rpx; color: gray; ">您不是清单创建者</view>
+<view style="margin-top: 10rpx; font-size: 30rpx; color: gray; ">不可以修改清单成员权限哦~</view>
+</view>
+</van-popup>
+
+

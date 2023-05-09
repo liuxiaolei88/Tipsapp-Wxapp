@@ -54,36 +54,47 @@ Page({
     photoURL: '',
     listId: '', //用于更新列表,
     addList: '' ,//用于记录添加的清单名称
-    photoUrlList:[]//用来存储上传以后变成永久链接的图片url
-
+    photoUrlList:[],//用来存储上传以后变成永久链接的图片url
+    nickName:'',
+    itemId:''
   },
 
   onLoad: function (options) {
+    wx.getStorage({
+      key: 'nickName',
+      success: res => {
+        this.setData({
+          nickName:res.data
+        })
+      }
+    })
     // 在这里接一下参数
     let params = JSON.parse(options.itemObj)
     console.log(params);
-    var photoList = []
-    photoList.push({
-      url: params.item.photourl
-    })
-    console.log(photoList);
+    // var photoList = []
+    // photoList.push({
+    //   url: params.item.photourl
+    // })
+    // console.log(photoList);
+   
     this.setData({
       flag: params.flag,
-      itemSort: params.item.sort, //种类
-      valuehome: params.listName,
-      date1: params.item.date1,
+      itemSort: params.item.itemSort, //种类
+      valuehome: params.listId,
+      date1: params.item.startDate,
       show1: false,
-      date2: params.item.date2,
+      date2: params.item.endDate,
       show2: false,
-      fileList: photoList, //图片url
-      remark: params.item.remark, //备注
-      itemName: params.item.name, //物品名称
-      number: params.item.count, //数量
+      fileList: params.item.photoUrlList, //图片url
+      remark: params.item.itemRemark, //备注
+      itemName: params.item.itemName, //物品名称
+      number: params.item.itemCount, //数量
       itemIndex: params.itemIndex, //下标
       allItem: params.allListItem, //整个清单
       photoURL: params.item.photourl, //图片URL，不是key-value形式
       listId: params.listId ,//更新清单的id
-      photoUrlList:[]//用来存储上传以后变成永久链接的图片url
+      photoUrlList:[],//用来存储上传以后变成永久链接的图片url
+      itemId:params.item._id//用来标识itemList里的每一条数据
     })
   },
 
@@ -383,35 +394,45 @@ Page({
       var itemName  = this.data.itemName
       var itemRemark = this.data.remark
       var itemSort = this.data.itemSort
-
       var allList = this.data.allItem
       var index = this.data.itemIndex
       console.log('更新数据');
-      console.log(itemCount);
-      console.log(itemName);
-      
-      allList[index].count = itemCount
-      allList[index].date1 = startDate
-      allList[index].date2 = endDate
-      allList[index].name = itemName
-      allList[index].remark = itemRemark
-      allList[index].sort = itemSort
-      allList[index].photourl = this.data.photoURL
-      allList[index].token = app.globalData.cloudID
-
-
-
-      db.collection('homelist').doc(this.data.listId).update({
+      db.collection('itemList').doc(this.data.itemId).update({
         data: {
-          info: db.command.set({
-            info: allList
-          })
+          itemCount:itemCount,//数量
+          startDate:startDate,//生产日期
+          endDate:endDate,//过期日期
+          itemName:itemName,//名称
+          itemRemark:itemRemark,//评论
+          itemSort:itemSort,//类别
+          listId:listId,//清单名称
         },
-        success: function (res) {
-          console.log('更新成功')
-          console.log(allList);
+        success: function(res) {
+          console.log(res.data)
         }
       })
+      // console.log(itemCount);
+      // console.log(itemName);
+      // allList[index].count = itemCount
+      // allList[index].date1 = startDate
+      // allList[index].date2 = endDate
+      // allList[index].name = itemName
+      // allList[index].remark = itemRemark
+      // allList[index].sort = itemSort
+      // allList[index].photourl = this.data.photoURL
+      // allList[index].token = app.globalData.cloudID
+
+      // db.collection('homelist').doc(this.data.listId).update({
+      //   data: {
+      //     info: db.command.set({
+      //       info: allList
+      //     })
+      //   },
+      //   success: function (res) {
+      //     console.log('更新成功')
+      //     console.log(allList);
+      //   }
+      // })
     }
     // flag=0是直接加入列表，默认=0
     else {
@@ -434,6 +455,9 @@ Page({
       var itemSort = this.data.itemSort
       var listId = this.data.valuehome
       var photoUrlList = this.data.photoUrlList
+      var nickName=this.data.nickName
+      
+
       
 
       db.collection('itemList').add({
@@ -447,7 +471,8 @@ Page({
           itemSort:itemSort,
           photoUrlList:photoUrlList,
           listId:listId,
-          Intervals:totalDays
+          Intervals:totalDays,
+          nickName:nickName
 
         },
         success: function(res) {

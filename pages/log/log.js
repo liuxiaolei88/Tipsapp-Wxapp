@@ -18,10 +18,11 @@ Page({
   },
   onLoad() {
     wx.cloud.callFunction({
-      name: 'openId',
+      name: 'cloudId',
       complete: res => {
         console.log('callFunction test result: ', res)
         app.globalData.cloudID=res.result.openid
+        
       }
     })
     if (wx.getUserProfile) {
@@ -43,6 +44,10 @@ Page({
         wx.setStorage({
           key:"nickName",
           data:e.userInfo.nickName
+         }),
+         wx.setStorage({
+          key:"openID",
+          data:e.cloudID
          }),
         this.setData({
           userInfo: e.userInfo,

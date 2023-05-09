@@ -133,7 +133,8 @@ Page({
     wx.navigateTo({
       url: '../itemUserList/itemUserList?itemObj=' + JSON.stringify({
         'owe': that.data.itemOwer,
-        'add': that.data.itemAdd
+        'add': that.data.itemAdd,
+        'itemId':that.data.itemId
       }),
     })
   },

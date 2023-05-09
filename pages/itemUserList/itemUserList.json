@@ -12,7 +12,13 @@
     "van-stepper": "../../dist/stepper/index",
     "van-cell": "../../dist/cell/index",
     "van-cell-group": "../../dist/cell-group/index",
-    "van-divider":"../../dist/divider/index"
+    "van-divider":"../../dist/divider/index",
+    "van-dropdown-menu":"../../dist/dropdown-menu/index",
+    "van-dropdown-item":"../../dist/dropdown-item/index",
+    "van-icon":"../../dist/icon/index",
+    "van-picker":"../../dist/picker/index",
+    "van-popup":"../../dist/popup/index"
+
   },
   "style": "v2"
 }

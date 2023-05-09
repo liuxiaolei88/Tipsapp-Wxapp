@@ -39,6 +39,7 @@
           "name": "pages/add/add",
           "pathName": "pages/add/add",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
@@ -111,7 +112,7 @@
         {
           "name": "pages/itemUserList/itemUserList",
           "pathName": "pages/itemUserList/itemUserList",
-          "query": "",
+          "query": "listAdd=[{“aut”:'读写', “name”:“熊3”}]",
           "launchMode": "default",
           "scene": null
         }
