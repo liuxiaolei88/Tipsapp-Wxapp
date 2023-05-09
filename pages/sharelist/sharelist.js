@@ -28,36 +28,46 @@ Page({
   //获取初始OpenId和基本信息
   onLoad: function (options) {
     var that = this
-    db.collection('homelist')
-      .where({
-        homeid: options.name,
-      }).get({
-        success: (res) => {
-          console.log(res.data[0]);
-          //记录拥有者
-          var itemOwer = res.data[0].owner.username
-          var itemAdd = res.data[0].guest
-          // 清单编号
-          var itemId = res.data[0]._id
-          // 清单名称
-          var listName = res.data[0].homeid
-
-          let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
-          let tem = res.data[0].info.info.map(element => {
-            let past = parseInt(element.date2.split('/')[2])
-            element.counts = past - now
-            return element
-          });
-          console.log(tem);
-          this.setData({
-            intemInfoArray: tem,
-            itemOwer: itemOwer,
-            itemAdd: itemAdd,
-            itemId:itemId,
-            listName:listName
-          })
-        }
+    db.collection('itemList').where({
+      listId:this.data.listId
+    }).get().then(res => {
+      // res.data 包含该记录的数据
+      console.log(res.data)
+      this.setData({
+        intemInfoArray: res.data
       })
+    })
+
+    // db.collection('homelist')
+    //   .where({
+    //     homeid: options.name,
+    //   }).get({
+    //     success: (res) => {
+    //       console.log(res.data[0]);
+    //       //记录拥有者
+    //       var itemOwer = res.data[0].owner.username
+    //       var itemAdd = res.data[0].guest
+    //       // 清单编号
+    //       var itemId = res.data[0]._id
+    //       // 清单名称
+    //       var listName = res.data[0].homeid
+
+    //       let now = util.formatTime(new Date()).split(' ')[0].split('/')[2]
+    //       let tem = res.data[0].info.info.map(element => {
+    //         let past = parseInt(element.date2.split('/')[2])
+    //         element.counts = past - now
+    //         return element
+    //       });
+    //       console.log(tem);
+    //       this.setData({
+    //         intemInfoArray: tem,
+    //         itemOwer: itemOwer,
+    //         itemAdd: itemAdd,
+    //         itemId:itemId,
+    //         listName:listName
+    //       })
+    //     }
+    //   })
 
 
 
