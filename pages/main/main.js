@@ -20,11 +20,10 @@ Page({
   onSearch: function (options) {
     var that = this
     var search_token = options.detail
-    console.log('j', search_token)
-    db.collection('userToken')
+    db.collection('itemList')
       .where({
-        token: db.command.in([app.globalData.cloudID]),
-        name: db.command.in([search_token]),
+        nickName:this.data.nickName,
+        itemName:search_token 
       })
       .get()
       .then(res => {

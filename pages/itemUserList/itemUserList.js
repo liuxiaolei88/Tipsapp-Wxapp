@@ -139,7 +139,7 @@ Page({
 
   },
   changePicker(e){
-    if(this.data.nickName!==this.data.listOwn){
+    if(this.data.nickName===this.data.listOwn){
       console.log(e.currentTarget.dataset.idx)
       this.setData({
         ownerPickerIsShow: true,
